@@ -1,0 +1,281 @@
+alias,categories,id,id_closed,name,rating,review_count
+the-masalawala-new-york-2,indian,sCC7-hSdCkNPExejZT9BAQ,False,The MasalaWala,4.5,1375
+bengal-tiger-indian-food-new-york,indian,x0k5kFArHLijdY8-NEQ7Xg,False,Bengal Tiger Indian Food,4.5,1599
+indian-table-brooklyn-2,indian,BXoW0AUDE7WZJcY-Vhqlbg,False,Indian Table,4.0,89
+tikka-indian-grill-brooklyn-5,indian,WWpOWqOgS9ClYvxYVzR0lg,False,Tikka Indian Grill,4.0,290
+aahar-indian-cuisine-new-york,indian,_z2_1TE_1brlvljiGtJ4mA,False,Aahar Indian Cuisine,4.5,269
+malai-marke-indian-cuisine-new-york,indian,7DUPGtHqVZHJ3yIufbWLsg,False,Malai Marke Indian Cuisine,4.0,525
+the-drunken-munkey-ues-new-york,indian,9pMhRYYgV7E9L7pzECtJKA,False,The Drunken Munkey - UES,4.5,902
+pippali-new-york,indian,HEs6llkn3wIP1ATXeIZQew,False,Pippali,4.0,686
+indian-kitchen-williamsburg,indian,gsZUN1Vtpd3P7rdvANbrmg,False,Indian Kitchen,4.0,164
+benares-new-york-3,indian,iXSuNKKUBIrBX7zUerlQDQ,False,Benares,4.0,448
+surya-new-york-3,indian,_R6EjbrynW_LFnmWoRqgww,False,Surya,4.0,192
+kitchen-grill-indian-restaurant-brooklyn,indian,YDtIHtfvWd4W36wq6UAjoA,False,Kitchen Grill Indian Restaurant,4.5,222
+baar-baar-new-york-2,indian,jYhbUh1TV7SCfPxjIhVpcg,False,Baar Baar,4.0,489
+spice-and-grill-the-indian-kitchen-brooklyn-2,indian,iXrKGRzIZK0pp31mO3nBzA,False,Spice & Grill : The Indian Kitchen,4.5,117
+mint-masala-new-york,indian,FvnExtQHPfz_crDCBTQ1iQ,False,Mint Masala,4.0,289
+seva-indian-cuisine-astoria-5,indian,lxNU-aBq0yPwBDx-i89ahA,False,Seva Indian Cuisine,4.5,1137
+adda-long-island-city,indian,Xl-zlT0NLLiKhym88em22w,False,Adda,4.5,202
+mahal-kita-brooklyn,indian,AlfkFxfD-cUBGA3Eq3j0Uw,False,Mahal Kita,4.0,251
+bombay-grill-brooklyn-5,indian,ZqOxAKVZEZTa4XS4zthp3Q,False,Bombay Grill,4.5,177
+tikka-indian-grill-park-slope,indian,xDERYqY7CbIx4aAlKsLy-A,False,Tikka Indian Grill,5.0,4
+the-masalawala-new-york-2,indian,sCC7-hSdCkNPExejZT9BAQ,False,The MasalaWala,4.5,1375
+bengal-tiger-indian-food-new-york,indian,x0k5kFArHLijdY8-NEQ7Xg,False,Bengal Tiger Indian Food,4.5,1599
+indian-table-brooklyn-2,indian,BXoW0AUDE7WZJcY-Vhqlbg,False,Indian Table,4.0,89
+tikka-indian-grill-brooklyn-5,indian,WWpOWqOgS9ClYvxYVzR0lg,False,Tikka Indian Grill,4.0,290
+aahar-indian-cuisine-new-york,indian,_z2_1TE_1brlvljiGtJ4mA,False,Aahar Indian Cuisine,4.5,269
+malai-marke-indian-cuisine-new-york,indian,7DUPGtHqVZHJ3yIufbWLsg,False,Malai Marke Indian Cuisine,4.0,525
+the-drunken-munkey-ues-new-york,indian,9pMhRYYgV7E9L7pzECtJKA,False,The Drunken Munkey - UES,4.5,902
+pippali-new-york,indian,HEs6llkn3wIP1ATXeIZQew,False,Pippali,4.0,686
+indian-kitchen-williamsburg,indian,gsZUN1Vtpd3P7rdvANbrmg,False,Indian Kitchen,4.0,164
+benares-new-york-3,indian,iXSuNKKUBIrBX7zUerlQDQ,False,Benares,4.0,448
+surya-new-york-3,indian,_R6EjbrynW_LFnmWoRqgww,False,Surya,4.0,192
+kitchen-grill-indian-restaurant-brooklyn,indian,YDtIHtfvWd4W36wq6UAjoA,False,Kitchen Grill Indian Restaurant,4.5,222
+baar-baar-new-york-2,indian,jYhbUh1TV7SCfPxjIhVpcg,False,Baar Baar,4.0,489
+spice-and-grill-the-indian-kitchen-brooklyn-2,indian,iXrKGRzIZK0pp31mO3nBzA,False,Spice & Grill : The Indian Kitchen,4.5,117
+mint-masala-new-york,indian,FvnExtQHPfz_crDCBTQ1iQ,False,Mint Masala,4.0,289
+seva-indian-cuisine-astoria-5,indian,lxNU-aBq0yPwBDx-i89ahA,False,Seva Indian Cuisine,4.5,1137
+adda-long-island-city,indian,Xl-zlT0NLLiKhym88em22w,False,Adda,4.5,202
+mahal-kita-brooklyn,indian,AlfkFxfD-cUBGA3Eq3j0Uw,False,Mahal Kita,4.0,251
+bombay-grill-brooklyn-5,indian,ZqOxAKVZEZTa4XS4zthp3Q,False,Bombay Grill,4.5,177
+tikka-indian-grill-park-slope,indian,xDERYqY7CbIx4aAlKsLy-A,False,Tikka Indian Grill,5.0,4
+the-smith-new-york-2,american,C-8mGN7lt5rIraO5n-15ug,False,The Smith,4.0,2398
+the-cabin-nyc-new-york-2,american,J3NT61-AH5d5Gu5tFJhYSw,False,The Cabin NYC,4.0,84
+bea-new-york,american,Rc1lxc5lSKJYd162JHNMfQ,False,Bea,4.0,2279
+uglyduckling-brooklyn,american,CwOAKJdX8AMz5iAoA-ZEuA,False,Uglyduckling,4.0,449
+boon-european-bistro-new-york,american,ClK88VhNAqevlM8hSltcOA,False,Boon European Bistro,5.0,1
+brindle-room-new-york,american,sVG1whNWHhlbjP6p027YcA,False,Brindle Room,4.0,983
+friedmans-new-york-59,american,cCesIqo-LQt0cRlZAnrAZQ,False,Friedman's,4.0,2162
+jacobs-pickles-new-york,american,xt4sa64WOrpJvZBDPNPNYg,False,Jacob's Pickles,4.0,3767
+bensons-nyc-new-york,american,x7hsZRd_MyrUgAW91FM9qA,False,Benson's NYC,4.5,350
+district-social-new-york,american,eTR6nfHvQzvKX7Dcd6JrfA,False,District Social,4.0,604
+rabbithole-restaurant-brooklyn,american,np98mkA22LYf6kCwCL59pw,False,Rabbithole Restaurant,4.0,763
+jane-new-york-2,american,uoT2_Wrt1noD6kZOID7tUg,False,Jane,4.0,3060
+tribecas-kitchen-new-york,american,MHtbBc2np3sR7jiV9GphNg,False,Tribeca's Kitchen,4.0,428
+juanchis-burger-brooklyn,american,dkAj-3gmkvdA4XkJmw6hCw,False,Juanchi's Burger,4.5,315
+the-smith-new-york-7,american,Xd_l7jtUAZZAAvK8-mI2Jw,False,The Smith,4.0,839
+the-brazen-tavern-new-york,american,Xu8H24NxJJxEE-9wGp_AMA,False,The Brazen Tavern,4.5,320
+hole-in-the-wall-murray-hill-new-york,american,7N9guQY_2a3gXXIlBQGKtA,False,Hole in the Wall Murray Hill,5.0,3
+parker-and-quinn-new-york,american,IOHaEgK1zDvUvB3SfKuGCw,False,Parker & Quinn,4.0,1248
+bh-kitchen-and-bar-new-york,american,6MgQz0SEOYUih2N5JOa6rg,False,BH Kitchen & Bar,4.0,115
+valerie-new-york,american,zRXMvxUX_rOliKZPpkWi_g,False,Valerie,4.0,126
+the-smith-new-york-2,american,C-8mGN7lt5rIraO5n-15ug,False,The Smith,4.0,2398
+the-cabin-nyc-new-york-2,american,J3NT61-AH5d5Gu5tFJhYSw,False,The Cabin NYC,4.0,84
+bea-new-york,american,Rc1lxc5lSKJYd162JHNMfQ,False,Bea,4.0,2279
+uglyduckling-brooklyn,american,CwOAKJdX8AMz5iAoA-ZEuA,False,Uglyduckling,4.0,449
+boon-european-bistro-new-york,american,ClK88VhNAqevlM8hSltcOA,False,Boon European Bistro,5.0,1
+brindle-room-new-york,american,sVG1whNWHhlbjP6p027YcA,False,Brindle Room,4.0,983
+friedmans-new-york-59,american,cCesIqo-LQt0cRlZAnrAZQ,False,Friedman's,4.0,2162
+jacobs-pickles-new-york,american,xt4sa64WOrpJvZBDPNPNYg,False,Jacob's Pickles,4.0,3767
+bensons-nyc-new-york,american,x7hsZRd_MyrUgAW91FM9qA,False,Benson's NYC,4.5,350
+district-social-new-york,american,eTR6nfHvQzvKX7Dcd6JrfA,False,District Social,4.0,604
+rabbithole-restaurant-brooklyn,american,np98mkA22LYf6kCwCL59pw,False,Rabbithole Restaurant,4.0,763
+jane-new-york-2,american,uoT2_Wrt1noD6kZOID7tUg,False,Jane,4.0,3060
+tribecas-kitchen-new-york,american,MHtbBc2np3sR7jiV9GphNg,False,Tribeca's Kitchen,4.0,428
+juanchis-burger-brooklyn,american,dkAj-3gmkvdA4XkJmw6hCw,False,Juanchi's Burger,4.5,315
+the-smith-new-york-7,american,Xd_l7jtUAZZAAvK8-mI2Jw,False,The Smith,4.0,839
+the-brazen-tavern-new-york,american,Xu8H24NxJJxEE-9wGp_AMA,False,The Brazen Tavern,4.5,320
+hole-in-the-wall-murray-hill-new-york,american,7N9guQY_2a3gXXIlBQGKtA,False,Hole in the Wall Murray Hill,5.0,3
+parker-and-quinn-new-york,american,IOHaEgK1zDvUvB3SfKuGCw,False,Parker & Quinn,4.0,1248
+bh-kitchen-and-bar-new-york,american,6MgQz0SEOYUih2N5JOa6rg,False,BH Kitchen & Bar,4.0,115
+valerie-new-york,american,zRXMvxUX_rOliKZPpkWi_g,False,Valerie,4.0,126
+chow-house-new-york,chinese,0dDCDQz7DrKkSvu9h2hcQw,False,Chow House,4.5,273
+han-dynasty-new-york,chinese,wfhMIiMh2A2psCGONOVSlg,False,Han Dynasty,4.0,1150
+café-china-new-york-2,chinese,xq0cX_DgxiJMXwhmEl9kUA,False,Café China,4.0,1444
+wah-fung-no-1-fast-food-new-york-3,chinese,X8ZS-dgiMIJvhwf9SaDnjw,False,Wah Fung No 1 Fast Food,4.5,1242
+jiang-diner-new-york,chinese,qHi_FA4zSEkFshXQ4Chc9A,False,Jiang Diner,4.5,45
+shu-jiao-fu-zhou-cuisine-restaurant-new-york,chinese,lynQoI3w_pzYfHGeuUU-Qg,False,Shu Jiao Fu Zhou Cuisine Restaurant,4.5,704
+joes-shanghai-new-york-2,chinese,0CjK3esfpFcxIopebzjFxA,False,Joe's Shanghai,4.0,5774
+china-blue-new-york,chinese,0k678lCWQyReNi0lARlOmw,False,China Blue,4.0,640
+the-tang-new-york-2,chinese,TzhAlljC_843JO7UDDUIaQ,False,The Tang,4.5,35
+han-dynasty-new-york-4,chinese,ojbH3wnRu050hRhkmoxRiA,False,Han Dynasty,4.0,534
+uncle-teds-modern-chinese-cuisine-new-york,chinese,SVJNB9LqI13jtVyKMZVqeg,False,Uncle Ted's Modern Chinese Cuisine,3.5,441
+han-dynasty-brooklyn-2,chinese,Q1TpfbuPwKPFrNFyu-u2_g,False,Han Dynasty,4.0,212
+fine-bakery-city-new-york-2,chinese,EssS0hygX61hQNZXOLKaDA,False,Fine Bakery City,3.5,33
+99-favor-taste-new-york-12,chinese,Xf6e3HaP0AgMBxY7dEDkOA,False,99 Favor Taste,4.0,1663
+tri-dim-shanghai-new-york-2,chinese,oowNI_aUmGEFa_VW8BFgRg,False,Tri Dim Shanghai,4.0,302
+hunan-delight-brooklyn,chinese,_XLLSXPIjgoZQtwU3RCcQA,False,Hunan Delight,4.0,281
+lucky-lees-new-york-2,chinese,cDHOpwHBY32eUNfanjj7Lg,False,Lucky Lee's,4.5,8
+szechuan-garden-new-york,chinese,xCHApgtkLpEyh0lz-uhZvg,False,Szechuan Garden,4.0,248
+meet-noodles-new-york-4,chinese,Z9t-ou4JhiBu-n4-F7hDng,False,Meet Noodles,4.5,48
+21-shanghai-house-new-york-4,chinese,ynB8T3htx8s5V0YV8gVPGA,False,21 Shanghai House,4.0,407
+chow-house-new-york,chinese,0dDCDQz7DrKkSvu9h2hcQw,False,Chow House,4.5,273
+han-dynasty-new-york,chinese,wfhMIiMh2A2psCGONOVSlg,False,Han Dynasty,4.0,1150
+café-china-new-york-2,chinese,xq0cX_DgxiJMXwhmEl9kUA,False,Café China,4.0,1444
+wah-fung-no-1-fast-food-new-york-3,chinese,X8ZS-dgiMIJvhwf9SaDnjw,False,Wah Fung No 1 Fast Food,4.5,1242
+jiang-diner-new-york,chinese,qHi_FA4zSEkFshXQ4Chc9A,False,Jiang Diner,4.5,45
+shu-jiao-fu-zhou-cuisine-restaurant-new-york,chinese,lynQoI3w_pzYfHGeuUU-Qg,False,Shu Jiao Fu Zhou Cuisine Restaurant,4.5,704
+joes-shanghai-new-york-2,chinese,0CjK3esfpFcxIopebzjFxA,False,Joe's Shanghai,4.0,5774
+china-blue-new-york,chinese,0k678lCWQyReNi0lARlOmw,False,China Blue,4.0,640
+the-tang-new-york-2,chinese,TzhAlljC_843JO7UDDUIaQ,False,The Tang,4.5,35
+han-dynasty-new-york-4,chinese,ojbH3wnRu050hRhkmoxRiA,False,Han Dynasty,4.0,534
+uncle-teds-modern-chinese-cuisine-new-york,chinese,SVJNB9LqI13jtVyKMZVqeg,False,Uncle Ted's Modern Chinese Cuisine,3.5,441
+han-dynasty-brooklyn-2,chinese,Q1TpfbuPwKPFrNFyu-u2_g,False,Han Dynasty,4.0,212
+fine-bakery-city-new-york-2,chinese,EssS0hygX61hQNZXOLKaDA,False,Fine Bakery City,3.5,33
+99-favor-taste-new-york-12,chinese,Xf6e3HaP0AgMBxY7dEDkOA,False,99 Favor Taste,4.0,1663
+tri-dim-shanghai-new-york-2,chinese,oowNI_aUmGEFa_VW8BFgRg,False,Tri Dim Shanghai,4.0,302
+hunan-delight-brooklyn,chinese,_XLLSXPIjgoZQtwU3RCcQA,False,Hunan Delight,4.0,281
+lucky-lees-new-york-2,chinese,cDHOpwHBY32eUNfanjj7Lg,False,Lucky Lee's,4.5,8
+szechuan-garden-new-york,chinese,xCHApgtkLpEyh0lz-uhZvg,False,Szechuan Garden,4.0,248
+meet-noodles-new-york-4,chinese,Z9t-ou4JhiBu-n4-F7hDng,False,Meet Noodles,4.5,48
+21-shanghai-house-new-york-4,chinese,ynB8T3htx8s5V0YV8gVPGA,False,21 Shanghai House,4.0,407
+trattoria-trecolori-new-york,italian,DoSU8IPq-Py_YV3kYmXPfQ,False,Trattoria Trecolori,4.0,2122
+olio-e-piú-new-york-3,italian,16ZnHpuaaBt92XWeJHCC5A,False,Olio e Piú,4.0,1810
+malatesta-trattoria-new-york,italian,IErfGS0DASSJfYU73m0Sqg,False,Malatesta Trattoria,4.0,1202
+pepe-rosso-social-new-york-2,italian,04exhf1PZ79_Km9vHAzvfA,False,Pepe Rosso Social,4.0,781
+rubirosa-new-york-2,italian,WG639VkTjmK5dzydd1BBJA,False,Rubirosa,4.5,1928
+lillo-cucina-italiana-brooklyn,italian,qgY41g_eg0eNzewCXmKcaA,False,Lillo Cucina Italiana,5.0,86
+supper-new-york,italian,Vs8kQ4R381y27AH018gLpg,False,Supper,4.0,1233
+aunt-jakes-new-york,italian,I2lgw_7DUnwD92ND4PN-Ow,False,Aunt Jake's,4.0,1213
+l-artusi-new-york,italian,rp8S7scxOkVVeG7dNneMGQ,False,L'Artusi,4.5,1703
+sapori-d-italia-new-york,italian,mtmEa4vFYa764G97sqQ9dQ,False,Sapori D'Italia,4.5,211
+antica-ristorante-new-york,italian,0Tvwk0hvgaY0QVIsZGTZKQ,False,Antica Ristorante,4.5,462
+forlinis-restaurant-new-york,italian,bdKc4CSJPv-XLgxVwrtPrg,False,Forlini's Restaurant,4.5,383
+gelso-and-grand-new-york,italian,MphfKkYFEe0BDQ6hZ0A5fA,False,Gelso & Grand,4.5,772
+carmines-italian-restaurant-times-square-new-york-5,italian,22nKUyCIbpnzR6R3_g1ptQ,False,Carmine's Italian Restaurant - Times Square,4.0,3437
+forno-rosso-downtown-brooklyn-2,italian,ZTsN8TdMXl8SW_AKd_ablw,False,Forno Rosso,4.5,617
+piccola-cucina-osteria-new-york,italian,qBGKigOGn_flCx1apxPzlA,False,Piccola Cucina Osteria,4.5,422
+il-brigante-new-york,italian,xeC9vn3dxVVzAMR_aFwfXg,False,IL Brigante,4.0,358
+il-posto-accanto-new-york,italian,kr5fRwdHtVwPPwSJxm9Fkg,False,Il Posto Accanto,4.5,196
+gersi-brooklyn,italian,hpRrYBbKUqv8ewFKDjbjoA,False,Gersi,4.5,216
+paesano-of-mulberry-street-new-york,italian,OCTiJwvjoK81WoDwsTkFvA,False,Paesano of Mulberry Street,4.0,705
+trattoria-trecolori-new-york,italian,DoSU8IPq-Py_YV3kYmXPfQ,False,Trattoria Trecolori,4.0,2122
+olio-e-piú-new-york-3,italian,16ZnHpuaaBt92XWeJHCC5A,False,Olio e Piú,4.0,1810
+malatesta-trattoria-new-york,italian,IErfGS0DASSJfYU73m0Sqg,False,Malatesta Trattoria,4.0,1202
+pepe-rosso-social-new-york-2,italian,04exhf1PZ79_Km9vHAzvfA,False,Pepe Rosso Social,4.0,781
+rubirosa-new-york-2,italian,WG639VkTjmK5dzydd1BBJA,False,Rubirosa,4.5,1928
+lillo-cucina-italiana-brooklyn,italian,qgY41g_eg0eNzewCXmKcaA,False,Lillo Cucina Italiana,5.0,86
+supper-new-york,italian,Vs8kQ4R381y27AH018gLpg,False,Supper,4.0,1233
+aunt-jakes-new-york,italian,I2lgw_7DUnwD92ND4PN-Ow,False,Aunt Jake's,4.0,1213
+l-artusi-new-york,italian,rp8S7scxOkVVeG7dNneMGQ,False,L'Artusi,4.5,1703
+sapori-d-italia-new-york,italian,mtmEa4vFYa764G97sqQ9dQ,False,Sapori D'Italia,4.5,211
+antica-ristorante-new-york,italian,0Tvwk0hvgaY0QVIsZGTZKQ,False,Antica Ristorante,4.5,462
+forlinis-restaurant-new-york,italian,bdKc4CSJPv-XLgxVwrtPrg,False,Forlini's Restaurant,4.5,383
+gelso-and-grand-new-york,italian,MphfKkYFEe0BDQ6hZ0A5fA,False,Gelso & Grand,4.5,772
+carmines-italian-restaurant-times-square-new-york-5,italian,22nKUyCIbpnzR6R3_g1ptQ,False,Carmine's Italian Restaurant - Times Square,4.0,3437
+forno-rosso-downtown-brooklyn-2,italian,ZTsN8TdMXl8SW_AKd_ablw,False,Forno Rosso,4.5,617
+piccola-cucina-osteria-new-york,italian,qBGKigOGn_flCx1apxPzlA,False,Piccola Cucina Osteria,4.5,422
+il-brigante-new-york,italian,xeC9vn3dxVVzAMR_aFwfXg,False,IL Brigante,4.0,358
+il-posto-accanto-new-york,italian,kr5fRwdHtVwPPwSJxm9Fkg,False,Il Posto Accanto,4.5,196
+gersi-brooklyn,italian,hpRrYBbKUqv8ewFKDjbjoA,False,Gersi,4.5,216
+paesano-of-mulberry-street-new-york,italian,OCTiJwvjoK81WoDwsTkFvA,False,Paesano of Mulberry Street,4.0,705
+thai-villa-new-york-2,thai,B3_K2kUVbYOU0VaLcj_LTw,False,Thai Villa,4.5,2649
+lovemama-new-york,thai,jjJc_CrkB2HodEinB6cWww,False,LoveMama,4.0,4290
+up-thai-new-york,thai,-OixbLnFLCzQclxCSbUQ8w,False,Up Thai,4.5,2039
+thai-holic-fort-greene,thai,9WgsvzaiXNAmmQGD0uQxFQ,False,Thai Holic,4.5,375
+wok-wok-new-york,thai,0GftSP2dRwEzujkv2VKIgA,False,Wok Wok,4.0,793
+top-thai-greenwich-new-york,thai,wGFSTTB6b4MHJJUzBnVJeg,False,Top Thai Greenwich,4.5,1144
+pure-thai-cookhouse-new-york,thai,MhceeLrM2_3mcKw5EGLY6A,False,Pure Thai Cookhouse,4.0,2404
+kind-fresh-meadows,thai,cegA4jf16vEt7NCQ7cpu2w,False,Kin'd,4.5,474
+thai-market-new-york,thai,p2zm0HnXZkI2yCAuYLb45g,False,Thai Market,4.0,953
+land-new-york,thai,83BXSwE0166sObnXLUE4bQ,False,Land,4.0,1027
+pinto-restaurant-brooklyn-heights-2,thai,RrPIJvmje1qb9iaYd6jH0g,False,Pinto Restaurant,4.0,206
+somtum-der-new-york,thai,qrydcGQpeDP_1oFvx3qOeg,False,Somtum Der,4.0,668
+williamsburg-thai-cuisine-brooklyn,thai,liGIz8CzhyS1udx1aefjng,False,Williamsburg Thai Cuisine,4.0,195
+sripraphai-thai-restaurant-woodside,thai,0L03onqNwxWLrbb_FCK79A,False,SriPraPhai Thai Restaurant,4.0,2252
+thep-thai-restaurant-new-york-5,thai,O1fUmxt3kbV-rnyjBtzAfw,False,THEP Thai Restaurant,4.5,478
+thailicious-les-new-york-2,thai,dqjko5ndMGayALuhwq3ghQ,False,Thailicious LES,5.0,20
+copper-throat-thai-cuisine-new-york,thai,Nvhx093-K2xwHIZVnFstJw,False,Copper Throat Thai Cuisine,4.0,78
+ugly-baby-brooklyn-3,thai,e64Y17DJgjotSz8B9gEI7Q,False,Ugly Baby,4.5,258
+thailicious-new-york,thai,kpR9je2H9MjKz6zpesyV6g,False,Thailicious,4.0,265
+kor-tor-mor-brooklyn,thai,5ZjNZd3Yg0jOkJ9WRx1r6g,False,Kor Tor Mor,4.0,210
+thai-villa-new-york-2,thai,B3_K2kUVbYOU0VaLcj_LTw,False,Thai Villa,4.5,2649
+lovemama-new-york,thai,jjJc_CrkB2HodEinB6cWww,False,LoveMama,4.0,4290
+up-thai-new-york,thai,-OixbLnFLCzQclxCSbUQ8w,False,Up Thai,4.5,2039
+thai-holic-fort-greene,thai,9WgsvzaiXNAmmQGD0uQxFQ,False,Thai Holic,4.5,375
+wok-wok-new-york,thai,0GftSP2dRwEzujkv2VKIgA,False,Wok Wok,4.0,793
+top-thai-greenwich-new-york,thai,wGFSTTB6b4MHJJUzBnVJeg,False,Top Thai Greenwich,4.5,1144
+pure-thai-cookhouse-new-york,thai,MhceeLrM2_3mcKw5EGLY6A,False,Pure Thai Cookhouse,4.0,2404
+kind-fresh-meadows,thai,cegA4jf16vEt7NCQ7cpu2w,False,Kin'd,4.5,474
+thai-market-new-york,thai,p2zm0HnXZkI2yCAuYLb45g,False,Thai Market,4.0,953
+land-new-york,thai,83BXSwE0166sObnXLUE4bQ,False,Land,4.0,1027
+pinto-restaurant-brooklyn-heights-2,thai,RrPIJvmje1qb9iaYd6jH0g,False,Pinto Restaurant,4.0,206
+somtum-der-new-york,thai,qrydcGQpeDP_1oFvx3qOeg,False,Somtum Der,4.0,668
+williamsburg-thai-cuisine-brooklyn,thai,liGIz8CzhyS1udx1aefjng,False,Williamsburg Thai Cuisine,4.0,195
+sripraphai-thai-restaurant-woodside,thai,0L03onqNwxWLrbb_FCK79A,False,SriPraPhai Thai Restaurant,4.0,2252
+thep-thai-restaurant-new-york-5,thai,O1fUmxt3kbV-rnyjBtzAfw,False,THEP Thai Restaurant,4.5,478
+thailicious-les-new-york-2,thai,dqjko5ndMGayALuhwq3ghQ,False,Thailicious LES,5.0,20
+copper-throat-thai-cuisine-new-york,thai,Nvhx093-K2xwHIZVnFstJw,False,Copper Throat Thai Cuisine,4.0,78
+ugly-baby-brooklyn-3,thai,e64Y17DJgjotSz8B9gEI7Q,False,Ugly Baby,4.5,258
+thailicious-new-york,thai,kpR9je2H9MjKz6zpesyV6g,False,Thailicious,4.0,265
+kor-tor-mor-brooklyn,thai,5ZjNZd3Yg0jOkJ9WRx1r6g,False,Kor Tor Mor,4.0,210
+the-greek-new-york,greek,6gDUVNZo0E9lxO2DkAhHOQ,False,The Greek,4.5,468
+kikis-new-york,greek,_4Grm99JEHnDWskCHAJfUg,False,Kiki's,4.0,541
+souvlaki-gr-new-york-3,greek,gG0pitVnSaUMGbEL3boF0g,False,Souvlaki GR,4.0,839
+pylos-new-york,greek,7xV4gzrgaOgQYtPC3FBZig,False,Pylos,4.5,1093
+taverna-kyclades-east-village-new-york-2,greek,apykLG7DTZ-7xnOcZGDZZA,False,Taverna Kyclades - East Village,4.0,773
+taverna-kyclades-astoria,greek,JEQ00qBAepe0oSiUBdfIew,False,Taverna Kyclades,4.0,2155
+ela-taverna-brooklyn,greek,Rn3Lf7BLoMHul0dEiNtT5Q,False,Ela Taverna,4.0,100
+avlee-greek-kitchen-brooklyn-3,greek,-fcbr1p0Uijjg3WpDDn5VA,False,Avlee Greek Kitchen,4.5,241
+loukoumi-taverna-astoria-2,greek,wPx4aNffBizdYmCG-WLKpQ,False,Loukoumi Taverna,4.5,411
+kalamaki-gr-flushing-2,greek,fVJUSwTsWqFnarBHCy5Ydw,False,Kalamaki GR,4.0,215
+souvlaki-gr-new-york-6,greek,oY-tooKEm8F-6Il1JOQzKg,False,Souvlaki GR,4.0,561
+athena-mediterranean-cuisine-brooklyn-3,greek,PiDidGDx15RYgiQFKeFZSg,False,Athena Mediterranean Cuisine,4.0,316
+voula-new-york,greek,9LJJRCx9RF7jyaaM2Xhq6g,False,Voula,4.5,76
+greek-express-bronx,greek,K0UNoqk1PczdaiZfoMRbEA,False,Greek Express,4.0,217
+faros-restaurant-brooklyn-4,greek,d5i5NvBcah7zX0Z5nK5BHA,False,Faros Restaurant,4.0,197
+kefi-new-york,greek,9S3jJb4u4ILKMdiNeIiKQQ,False,Kefi,4.0,127
+the-greek-kitchen-new-york,greek,blXVGUTB-4epYW9KFsQJ_g,False,The Greek Kitchen,4.0,471
+e-taverna-to-koutouki-astoria,greek,_Mpp5d7mjLLZbDFSLx7LVg,False,E Taverna To Koutouki,4.5,190
+greek-eats-new-york,greek,mdhwe9pw_OD9DGPLZUmzKQ,False,Greek Eats,4.0,342
+karvouna-mezze-new-york-2,greek,x7Q721PDf7s1iYYP7diaVw,False,Karvouna Mezze,4.5,20
+the-greek-new-york,greek,6gDUVNZo0E9lxO2DkAhHOQ,False,The Greek,4.5,468
+kikis-new-york,greek,_4Grm99JEHnDWskCHAJfUg,False,Kiki's,4.0,541
+souvlaki-gr-new-york-3,greek,gG0pitVnSaUMGbEL3boF0g,False,Souvlaki GR,4.0,839
+pylos-new-york,greek,7xV4gzrgaOgQYtPC3FBZig,False,Pylos,4.5,1093
+taverna-kyclades-east-village-new-york-2,greek,apykLG7DTZ-7xnOcZGDZZA,False,Taverna Kyclades - East Village,4.0,773
+taverna-kyclades-astoria,greek,JEQ00qBAepe0oSiUBdfIew,False,Taverna Kyclades,4.0,2155
+ela-taverna-brooklyn,greek,Rn3Lf7BLoMHul0dEiNtT5Q,False,Ela Taverna,4.0,100
+avlee-greek-kitchen-brooklyn-3,greek,-fcbr1p0Uijjg3WpDDn5VA,False,Avlee Greek Kitchen,4.5,241
+loukoumi-taverna-astoria-2,greek,wPx4aNffBizdYmCG-WLKpQ,False,Loukoumi Taverna,4.5,411
+kalamaki-gr-flushing-2,greek,fVJUSwTsWqFnarBHCy5Ydw,False,Kalamaki GR,4.0,215
+souvlaki-gr-new-york-6,greek,oY-tooKEm8F-6Il1JOQzKg,False,Souvlaki GR,4.0,561
+athena-mediterranean-cuisine-brooklyn-3,greek,PiDidGDx15RYgiQFKeFZSg,False,Athena Mediterranean Cuisine,4.0,316
+voula-new-york,greek,9LJJRCx9RF7jyaaM2Xhq6g,False,Voula,4.5,76
+greek-express-bronx,greek,K0UNoqk1PczdaiZfoMRbEA,False,Greek Express,4.0,217
+faros-restaurant-brooklyn-4,greek,d5i5NvBcah7zX0Z5nK5BHA,False,Faros Restaurant,4.0,197
+kefi-new-york,greek,9S3jJb4u4ILKMdiNeIiKQQ,False,Kefi,4.0,127
+the-greek-kitchen-new-york,greek,blXVGUTB-4epYW9KFsQJ_g,False,The Greek Kitchen,4.0,471
+e-taverna-to-koutouki-astoria,greek,_Mpp5d7mjLLZbDFSLx7LVg,False,E Taverna To Koutouki,4.5,190
+greek-eats-new-york,greek,mdhwe9pw_OD9DGPLZUmzKQ,False,Greek Eats,4.0,342
+karvouna-mezze-new-york-2,greek,x7Q721PDf7s1iYYP7diaVw,False,Karvouna Mezze,4.5,20
+yemen-cafe-and-restaurant-brooklyn-3,middle_eastern,wctR1TrheHAwpHZ2sJknEw,False,Yemen Cafe & Restaurant,4.5,466
+cafe-mogador-new-york,middle_eastern,W4hobe10Fy54MKqmLaObEg,False,Cafe Mogador,4.0,1820
+bedouin-tent-brooklyn,middle_eastern,nGpC40fxoDQ-Ft0h-_gkVg,False,Bedouin Tent,4.0,589
+tanoreen-brooklyn-2,middle_eastern,_-EQR2vNYg-b1eZwAgp6JQ,False,Tanoreen,4.0,796
+manousheh-new-york-2,middle_eastern,VSPkVw9gSQx-5v4A6aC_YA,False,Manousheh,4.5,391
+cafe-mogador-brooklyn,middle_eastern,jAaVnUKLITkuhzwXIe0vLQ,False,Cafe Mogador,4.5,1094
+agora-turkish-restaurant-new-york-2,middle_eastern,7gZGVdqMch7ls0IGO3DijQ,False,Agora Turkish Restaurant,4.5,491
+zyara-ny-new-york,middle_eastern,0AoaUlXkQOlalpA3v-Ivqw,False,Zyara NY,4.5,122
+kabul-kabab-house-flushing,middle_eastern,Qz5E5sPtETWD3kwEUsBZpw,False,Kabul Kabab House,4.0,455
+au-zaatar-new-york,middle_eastern,0FaLilJs2VN83hOEBcBnPg,False,Au Za'atar,4.0,680
+taboonette-new-york,middle_eastern,owYYuyLvlsdjLz68c3SSfg,False,Taboonette,4.0,796
+tava-turkish-mediterranean-brooklyn,middle_eastern,HHUMUAKDiJqrKSf2Qaxmlw,False,Tava Turkish Mediterranean,4.5,138
+deasura-forest-hills,middle_eastern,R2hzhMjmR1MfM-e4pS7yeg,False,Deasura,4.5,75
+sultan-restaurant-and-cafe-lounge-brooklyn,middle_eastern,yWhXiBrycr5h4oVSMB_8zQ,False,Sultan Restaurant & Cafe Lounge,4.5,82
+bustan-new-york,middle_eastern,1p4dUaLyzIhN5n1lJnHSgA,False,Bustan,4.0,458
+dar-525-brooklyn,middle_eastern,oqVG2LsTwvRzgJxId5pqiw,False,Dar 525,4.5,430
+taboon-new-york,middle_eastern,XK8DnTYgZGoZKuihH4_cpg,False,Taboon,4.0,611
+savida-new-york,middle_eastern,qCrM1gDsY7bc3Tk61VBIBQ,False,Savida,4.5,41
+zizi-limona-brooklyn,middle_eastern,y9hWXCnewh7xmSk2YUl0Ew,False,Zizi Limona,4.0,399
+omars-mediterranean-east-midtown-new-york,middle_eastern,tV6Tgw6FS45BRHyQ207jag,False,Omar's Mediterranean East Midtown,4.5,603
+yemen-cafe-and-restaurant-brooklyn-3,middle_eastern,wctR1TrheHAwpHZ2sJknEw,False,Yemen Cafe & Restaurant,4.5,466
+cafe-mogador-new-york,middle_eastern,W4hobe10Fy54MKqmLaObEg,False,Cafe Mogador,4.0,1820
+bedouin-tent-brooklyn,middle_eastern,nGpC40fxoDQ-Ft0h-_gkVg,False,Bedouin Tent,4.0,589
+tanoreen-brooklyn-2,middle_eastern,_-EQR2vNYg-b1eZwAgp6JQ,False,Tanoreen,4.0,796
+manousheh-new-york-2,middle_eastern,VSPkVw9gSQx-5v4A6aC_YA,False,Manousheh,4.5,391
+cafe-mogador-brooklyn,middle_eastern,jAaVnUKLITkuhzwXIe0vLQ,False,Cafe Mogador,4.5,1094
+agora-turkish-restaurant-new-york-2,middle_eastern,7gZGVdqMch7ls0IGO3DijQ,False,Agora Turkish Restaurant,4.5,491
+zyara-ny-new-york,middle_eastern,0AoaUlXkQOlalpA3v-Ivqw,False,Zyara NY,4.5,122
+kabul-kabab-house-flushing,middle_eastern,Qz5E5sPtETWD3kwEUsBZpw,False,Kabul Kabab House,4.0,455
+au-zaatar-new-york,middle_eastern,0FaLilJs2VN83hOEBcBnPg,False,Au Za'atar,4.0,680
+taboonette-new-york,middle_eastern,owYYuyLvlsdjLz68c3SSfg,False,Taboonette,4.0,796
+tava-turkish-mediterranean-brooklyn,middle_eastern,HHUMUAKDiJqrKSf2Qaxmlw,False,Tava Turkish Mediterranean,4.5,138
+deasura-forest-hills,middle_eastern,R2hzhMjmR1MfM-e4pS7yeg,False,Deasura,4.5,75
+sultan-restaurant-and-cafe-lounge-brooklyn,middle_eastern,yWhXiBrycr5h4oVSMB_8zQ,False,Sultan Restaurant & Cafe Lounge,4.5,82
+bustan-new-york,middle_eastern,1p4dUaLyzIhN5n1lJnHSgA,False,Bustan,4.0,458
+dar-525-brooklyn,middle_eastern,oqVG2LsTwvRzgJxId5pqiw,False,Dar 525,4.5,430
+taboon-new-york,middle_eastern,XK8DnTYgZGoZKuihH4_cpg,False,Taboon,4.0,611
+savida-new-york,middle_eastern,qCrM1gDsY7bc3Tk61VBIBQ,False,Savida,4.5,41
+zizi-limona-brooklyn,middle_eastern,y9hWXCnewh7xmSk2YUl0Ew,False,Zizi Limona,4.0,399
+omars-mediterranean-east-midtown-new-york,middle_eastern,tV6Tgw6FS45BRHyQ207jag,False,Omar's Mediterranean East Midtown,4.5,603

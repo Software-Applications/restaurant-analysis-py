@@ -1,0 +1,15 @@
+requests
+python-dotenv
+pprint
+#re
+#json
+#csv
+datetime
+pandas
+
+
+
+#TODO: Which ones are modules vs packages?
+# re, json, csv failed to load. check it later
+
+# automate data push into csv
