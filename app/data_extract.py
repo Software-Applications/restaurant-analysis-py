@@ -24,7 +24,7 @@ headers = {'Authorization': 'Bearer %s' % API_KEY}
 def write_to_csv_header(csv_filepath, header = []):
     csv_header = header
         
-    with open(csv_filepath, "w") as csv_file:
+    with open(csv_filepath, "w", newline = '') as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=csv_header)
         writer.writeheader()
 
@@ -35,7 +35,7 @@ def write_to_csv_details(rows, csv_filepath, header = []):
 
     csv_header = header
 
-    with open(csv_filepath, "a") as csv_file:
+    with open(csv_filepath, "a", newline = '') as csv_file:
         writer = csv.DictWriter(csv_file, fieldnames=csv_header)
         # writer.writeheader() # uses fieldnames set above
         for row in rows:
