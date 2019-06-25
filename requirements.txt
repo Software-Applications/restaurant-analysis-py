@@ -6,6 +6,8 @@ pprint
 #csv
 datetime
 pandas
+gspread
+oauth2client
 
 
 
