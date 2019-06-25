@@ -105,5 +105,4 @@ venv.bak/
 
 # folders
 /test
-/data
-/google_credentials
+
