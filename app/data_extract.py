@@ -8,6 +8,8 @@ import csv
 import re
 import json
 from pprint import pprint
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 
 #> loads contents of the .env file into the script's environment
 load_dotenv() 
@@ -20,6 +22,29 @@ headers = {'Authorization': 'Bearer %s' % API_KEY}
 
 
 #> program functions
+
+def google_sheets_data(gsheet, data_set = [], ind = 2):
+    load_dotenv()
+    DOCUMENT_ID = os.environ.get("GOOGLE_SHEET_ID", "OOPS! The desination does not exist")
+    #SHEET_NAME = os.environ.get("BUSINESS_DATA", "business_search")
+    #breakpoint()
+    SHEET_NAME = gsheet
+    scope = ["https://spreadsheets.google.com/feeds",'https://www.googleapis.com/auth/spreadsheets',"https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
+    file_name = os.path.join(os.getcwd(), "google_credentials", "gcreds.json")
+    creds = ServiceAccountCredentials.from_json_keyfile_name(file_name, scope)
+    client = gspread.authorize(creds)
+    doc = client.open_by_key(DOCUMENT_ID)
+    sheet = doc.worksheet(SHEET_NAME)
+    rows = sheet.row_count
+    for i in range(2, rows, 1):
+        sheet.delete_row(i)
+    sheet.insert_row(data_set, ind)
+    #
+    #list_count = len(data_set)
+    #for i in range(2, list_count, 1):
+    #    sheet.insert_row(data_set, i )
+
+
 
 def write_to_csv_header(csv_filepath, header = []):
     csv_header = header
@@ -74,6 +99,8 @@ ids = []
 #> BUSINESS SEARCH API. USED TO EXTRACT B
 url_search='https://api.yelp.com/v3/businesses/search'
 
+google_sheet_index = 2
+
 for cuisine in cuisines:
      
     ###  searches based on cuisine type in New York City
@@ -117,8 +144,18 @@ for cuisine in cuisines:
         rows.append(row)
         # useful for reviews api
         ids.append(row['id'])
+    
+        
+    for row in rows:
+        row_value = [v for v in row.values()]
+        google_sheets_data('business_search', row_value, google_sheet_index)
+        google_sheet_index = google_sheet_index + 1
+        #breakpoint()
 
-    write_to_csv_details(rows, file_name_search, header = ['alias', 'categories', 'id', 'id_closed', 'name', 'rating', 'review_count'])
+breakpoint()
+    #write_to_csv_details(rows, file_name_search, header = ['alias', 'categories', 'id', 'id_closed', 'name', 'rating', 'review_count'])
+
+    
 
 
 #######################

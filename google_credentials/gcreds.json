@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "yelpdata-244723",
+  "private_key_id": "0aace210b7d9a0f861a569e754338ca6eec0ef5b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCNqtu38Hi5dQgo\naVdOeU9zeKqPOdz3QQ5/p+86QBH3AsLdqumwACmUo3QIM9bLWRWWdfarX8m+wyHr\n/HeGvYNKOUbMJFS+c37IJ/Uu4ki9/ewtoAGRGOJ+si8CPzVneO1MYDcPXFUAlq6Y\nOVIiJa0242uB8m+r/Mac5g42mjcDSZGXtB8PAHGulQYX/SRtyKm00iyMEQqH+dHg\nMVEq9RsV8OO66A7AKAKqf+zXqtrHW25N2RRwl2ijVNZiA99sLiOUsPfBJq36K4Lb\nAaVMtNtaK5Sy5zciMMN8frQrMsL52ED6XEQQN6HABcq4rSKhFEmWh1t9qXA803DW\nZWYOCwV7AgMBAAECggEAAJmQG5vHjxV5Rt6HUZw+42DH7BpVHrDmVFEMOMVrrg2T\ncKfYHHgrtObqR1yc1LiYWE5AkKIzsvyViK/Fe8sSor5SV+vxder8RvGwXpXzs+Y+\n2USbrRcbYmjzvQEygzEmZBPmN8juzTVWIOvhNqbNMHXPDzpNEb/cwW5R8hY+FGP6\nPnSEdovB2/iZuTcKCLmqXojdAnX8lbYBf/kmSBTUMcTIcgm6eDdpLQJR0OwQD+yF\nm730JtcxmDdrp/qohwJ744x1GG/eGpwcwfIIJw9k+c7igqWFyHVGIaXRD892v0IB\nnPKS6pQIa8rOB3jSxQErXuVQkok/2XmrF1ElZVTJQQKBgQDAcA2U3sPRGRveLJRq\nk+FxbExdhTLtPm55xypocr5A9SlPeJKw9A4BCIB1GPyFGSCF1fpY7xy7lWt5sXox\nMdcc+OZ5IMhoNLO2Lk6Js+kf4Apq3AMRzBNV6yQwzEgPGNXvNW/toneD0vBfNc61\nSKv3X5+Pj3BXHN3GTL9lDAh+wQKBgQC8ddLlda8bh6wtKeX1kjk8thaamu+ZpUBs\n37FXNZNPqN9d/tQ0y8Ao6fV7NkJp/Qc3j8xhSc8lhr+BOMfx4NhFxXJCwokh0Fa2\nBP6qCq8Z2UcngRDz/854P8IajBjGlg0MKU5AJdcuO0orI/wvsfLQijkCCSP8UcJn\nqxoLo0iPOwKBgB+Kvk8mbEY7rVuvRuxpLMygiavSh1RnpUgEoyjXleOjy4+hHbov\nZpQ4xoVrAQj342LMfepR1w3QIfuiYXrqxm2TRoOYIgEikkpMMMdVW+LDoDF/umkS\nYCD3F8l/0lfXJEm/Iod618gdrRSOB0GjlbxISikHw8wjiR5VuhFf9YyBAoGAXBA2\n0S8XNpylaH6yPq+K1HSjQC115JnMiiMQj+i1KNH3JATLh2sNWS9JY0JTWVFpCCRw\nFAqpbcyQmsCxNCDBpfvZYHGF6gXLhimUel6zwS3aS5sKPBf3tdh3qt5LcB93CjzX\nZBDYOFZwWfi/RlFoq6UKSktK0ATksh3soEjItmcCgYEApyK8F8zp5MUlPeY4SnRK\nqN3V96NPilYdJM/MwWIH5plQUdR3cLMGL1ndWo5oITwsqI6qZy0wpZqVN/G91iHa\nd8VrqQtDG+wFcNt3dFV62L164gt5/U9iTmHygvnVwe9fizDXBBKTVMIdDYEOGy8z\nok63cU1rL3n9LEPHnZViM8o=\n-----END PRIVATE KEY-----\n",
+  "client_email": "yelpdata@yelpdata-244723.iam.gserviceaccount.com",
+  "client_id": "116238416659709422168",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/yelpdata%40yelpdata-244723.iam.gserviceaccount.com"
+}
