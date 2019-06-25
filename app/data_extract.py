@@ -10,6 +10,7 @@ import json
 from pprint import pprint
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
+import time
 
 #> loads contents of the .env file into the script's environment
 load_dotenv() 
@@ -150,6 +151,7 @@ for cuisine in cuisines:
         row_value = [v for v in row.values()]
         google_sheets_data('business_search', row_value, google_sheet_index)
         google_sheet_index = google_sheet_index + 1
+        time.sleep(150)
         #breakpoint()
 
 breakpoint()
