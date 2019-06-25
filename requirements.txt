@@ -13,3 +13,4 @@ pandas
 # re, json, csv failed to load. check it later
 
 # automate data push into csv
+# truncates reviews. is that ok?
