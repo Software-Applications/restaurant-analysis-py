@@ -35,6 +35,10 @@ headers = {'Authorization': 'Bearer %s' % API_KEY}
 # program functions
 ###########################
 
+def cur_date():
+    now = datetime.datetime.now()
+    return now.strftime("%Y-%m-%d:%I:%M:%S %p")
+
 def google_sheets_data(gsheet, data_set = [], ind = 2):
     load_dotenv()
     DOCUMENT_ID = os.environ.get("GOOGLE_SHEET_ID", "OOPS! The desination does not exist")
@@ -242,6 +246,10 @@ except:
     send_email(fail_text)
     err_cd = 102
     sys.exit(102)
+
+
+#cur_date()
+#google_sheets_data('meta', cur_date, 2)
 
 
 
