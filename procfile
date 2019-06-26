@@ -1,0 +1,1 @@
+worker: node app/data_extract.py
