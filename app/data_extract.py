@@ -48,6 +48,7 @@ def google_sheets_data(gsheet, data_set = [], ind = 2):
     sheet.insert_row(data_set, ind)
     # the commented code was an attempt to auto delete data from google sheets.
     # preserving it for future use
+
     #rows = sheet.row_count
     # deletes existing data with the api limits set by google
     #for i in range(2, rows+1, 1):
@@ -68,6 +69,7 @@ def google_sheets_data(gsheet, data_set = [], ind = 2):
     
 # Activate this code if you want to write business search data in text file.
 # Preserving the functionality for future use
+
 #def write_to_csv_header(csv_filepath, header = []):
 #    csv_header = header
 #        
@@ -125,21 +127,22 @@ google_search_index = 2
 for cuisine in cuisines:
     ###  searches based on cuisine type in New York City
     params_search = {'term':cuisine,'location':'New York City'}
+
     ###  Making a get request to the API
     req_search=requests.get(url_search, params=params_search, headers=headers)
+
     ### checks whether the get request is successful or not
-    # TODO: Email API error
     try:
-        req_search == 200
+        req_search.status_code == 200
     except:
         err_text = "Connection to yelp api failed. the is no input available for data processing. contact dheeraj rekula"
         send_email(err_text)
         err_cd = 5
         sys.exit(5)
-    #print('The status code is {}'.format(req_search.status_code))
-    #breakpoint()
+
     ### converting into json format 
     business_search = json.loads(req_search.text)
+
     ### reading only relevant data
     restaurants = business_search["businesses"]
     rows_business = []
@@ -167,16 +170,17 @@ for cuisine in cuisines:
             else:
                 pass
 
-        pass_text = "data upload of business search succeeded. if you find any issues contact dheeraj rekula"
+        pass_text = f"Data upload of business search for {cuisine} cuisine succeeded. If you find any issues contact dheeraj rekula"
         send_email(pass_text)
     except:
-        fail_text = "data upload of business search failed. contact the dheeraj rekula"
+        fail_text = f"Data upload of business search for {cuisine} cuisine failed. contact the dheeraj rekula"
         send_email(fail_text)
         err_cd = 101
         sys.exit(err_cd)
-    # TODO: Can i email connection error for business search
+
     # Activate this code if you want to write business search data in text file.
     # Preserving the functionality for future use
+
     # write_to_csv_details(rows, file_name_search, header = ['alias', 'categories', 'id', 'id_closed', 'name', 'rating', 'review_count'])
 
     
@@ -194,8 +198,9 @@ rows_reviews=[]
 for id in ids:
     url_reviews = f"https://api.yelp.com/v3/businesses/{id}/reviews"
     req_reviews=requests.get(url_reviews, headers=headers)
+    # email api error
     try:
-        req_reviews == 200
+        req_reviews.status_code == 200
     except:
         err_text = "Connection to yelp reviews api failed. the is no input available for data processing. contact dheeraj rekula"
         send_email(err_text)
@@ -203,6 +208,7 @@ for id in ids:
         sys.exit(5)
     business_review = json.loads(req_reviews.text)
     review_details = business_review['reviews']
+    
     # reading only relevant data
     for detail in review_details:
         row = {
@@ -229,16 +235,16 @@ try:
         else:
             pass
 
-    pass_text = "data upload of business reviews succeeded. if you find any issues contact dheeraj rekula"
+    pass_text = "Data upload of business reviews succeeded. if you find any issues contact dheeraj rekula"
     send_email(pass_text)
 except:
-    fail_text = "data upload of business search failed. contact the dheeraj rekula"
+    fail_text = "Data upload of business search failed. contact the dheeraj rekula"
     send_email(fail_text)
     err_cd = 102
     sys.exit(102)
 
 
-    # TODO: Can i email review error
+
 
 
     
