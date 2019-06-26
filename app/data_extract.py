@@ -1,4 +1,9 @@
+################################################################################################
+# purpose: the purpose of this code is to read data from yelp api and upload it to google sheets
 # review_analysis.py
+# note: the commented code is preserved for future proposals
+# author: dheeraj rekula (rekula.d@gmail.com)
+################################################################################################
 
 import requests
 from dotenv import load_dotenv
@@ -11,6 +16,12 @@ from pprint import pprint
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import time
+import sys
+from send_email_notification import send_email
+
+###############################
+# loading environment variables
+###############################
 
 #> loads contents of the .env file into the script's environment
 load_dotenv() 
@@ -19,16 +30,14 @@ load_dotenv()
 #  headers variable will be used to pass requests to YELP Fusion APIs
 API_KEY = os.environ.get("API_KEY", "Authentication Error!!")
 headers = {'Authorization': 'Bearer %s' % API_KEY}
-#breakpoint()
 
-
-#> program functions
+###########################
+# program functions
+###########################
 
 def google_sheets_data(gsheet, data_set = [], ind = 2):
     load_dotenv()
     DOCUMENT_ID = os.environ.get("GOOGLE_SHEET_ID", "OOPS! The desination does not exist")
-    #SHEET_NAME = os.environ.get("BUSINESS_DATA", "business_search")
-    #breakpoint()
     SHEET_NAME = gsheet
     scope = ["https://spreadsheets.google.com/feeds",'https://www.googleapis.com/auth/spreadsheets',"https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
     file_name = os.path.join(os.getcwd(), "google_credentials", "gcreds.json")
@@ -36,59 +45,73 @@ def google_sheets_data(gsheet, data_set = [], ind = 2):
     client = gspread.authorize(creds)
     doc = client.open_by_key(DOCUMENT_ID)
     sheet = doc.worksheet(SHEET_NAME)
-    rows = sheet.row_count
-    for i in range(2, rows, 1):
-        sheet.delete_row(i)
     sheet.insert_row(data_set, ind)
-    #
-    #list_count = len(data_set)
-    #for i in range(2, list_count, 1):
-    #    sheet.insert_row(data_set, i )
+    # the commented code was an attempt to auto delete data from google sheets.
+    # preserving it for future use
+    #rows = sheet.row_count
+    # deletes existing data with the api limits set by google
+    #for i in range(2, rows+1, 1):
+    #test = sheet.cell(2, 1)
+    #breakpoint()
+    #i = 1
+    #if sheet.cell(2, 1) == "":
+    #    break
+    #else:
+    #    sheet.delete_row(2)
+    #    i = i + 1
+    #    time.sleep(1)
+    #    if i % 49 == 0:
+    #        time.sleep(105)
+    #    else:
+    #        pass
 
-
-
-def write_to_csv_header(csv_filepath, header = []):
-    csv_header = header
-        
-    with open(csv_filepath, "w", newline = '') as csv_file:
-        writer = csv.DictWriter(csv_file, fieldnames=csv_header)
-        writer.writeheader()
-
-
-def write_to_csv_details(rows, csv_filepath, header = []):
-    # rows should be a list of dictionaries
-    # csv_filepath should be a string filepath pointing to where the data should be written
-
-    csv_header = header
-
-    with open(csv_filepath, "a", newline = '') as csv_file:
-        writer = csv.DictWriter(csv_file, fieldnames=csv_header)
-        # writer.writeheader() # uses fieldnames set above
-        for row in rows:
-            writer.writerow(row)
-
-def del_csv(file_name):
-    if os.path.exists(file_name):
-        os.remove(file_name)
+    
+# Activate this code if you want to write business search data in text file.
+# Preserving the functionality for future use
+#def write_to_csv_header(csv_filepath, header = []):
+#    csv_header = header
+#        
+#    with open(csv_filepath, "w", newline = '') as csv_file:
+#        writer = csv.DictWriter(csv_file, fieldnames=csv_header)
+#        writer.writeheader()
+#
+#
+#def write_to_csv_details(rows, csv_filepath, header = []):
+#    # rows should be a list of dictionaries
+#    # csv_filepath should be a string filepath pointing to where the data should be written
+#
+#    csv_header = header
+#
+#    with open(csv_filepath, "a", newline = '') as csv_file:
+#        writer = csv.DictWriter(csv_file, fieldnames=csv_header)
+#        # writer.writeheader() # uses fieldnames set above
+#        for row in rows:
+#            writer.writerow(row)
+#
+#def del_csv(file_name):
+#    if os.path.exists(file_name):
+#        os.remove(file_name)
+#
+#def text_parser(text_data):
+#    symbol_parser = re.findall(r'[^\\n]+', text_data)
+#    return symbol_parser
 
 #####################################################################################
 #> STEP 1 : PULL REQUIRED DATA USING BUSINESS SEARCH, REVIEW APIS
 #####################################################################################
 
 #> define your cuisines
-cuisines = ['indian', 'Indian', 'american', 'American', 'chinese', 'Chinese', 'italian', 'Italian', 'thai', 'Thai', 'greek', 'Greek', 'middle_eastern', 'Middle_eastern']
+#cuisines = ['indian', 'Indian', 'american', 'American', 'chinese', 'Chinese', 'italian', 'Italian', 'thai', 'Thai', 'greek', 'Greek', 'middle_eastern', 'Middle_eastern']
+cuisines = ['indian', 'american', 'chinese', 'italian', 'thai', 'greek', 'middle_eastern']
 
-file_name_search = os.path.join(os.getcwd(), "data", "business_search.csv")
-file_name_review = os.path.join(os.getcwd(), "data", "business_review.csv")
-
-del_csv(file_name_search)
-del_csv(file_name_review)
-
-#if os.path.exists(file_name_search):
-#    os.remove(file_name_search)
-
-write_to_csv_header(file_name_search, header = ['alias', 'categories', 'id', 'id_closed', 'name', 'rating', 'review_count'])
-write_to_csv_header(file_name_review, header = ['restaurant_id', 'text', 'user_rating'])
+# Activate this code if you want to write business search data in text file.
+# Preserving the functionality for future use
+#file_name_search = os.path.join(os.getcwd(), "data", "business_search.csv")
+#file_name_review = os.path.join(os.getcwd(), "data", "business_review.csv")
+#del_csv(file_name_search)
+#del_csv(file_name_review)
+#write_to_csv_header(file_name_search, header = ['alias', 'categories', 'id', 'id_closed', 'name', 'rating', 'review_count'])
+#write_to_csv_header(file_name_review, header = ['restaurant_id', 'text', 'user_rating'])
 
 #######################
 #> BUSINESS SEARCH API
@@ -96,41 +119,30 @@ write_to_csv_header(file_name_review, header = ['restaurant_id', 'text', 'user_r
 
 # need to accumulate all businesses ids for reviews api
 ids = []
-
 #> BUSINESS SEARCH API. USED TO EXTRACT B
 url_search='https://api.yelp.com/v3/businesses/search'
-
-google_sheet_index = 2
-
+google_search_index = 2
 for cuisine in cuisines:
-     
     ###  searches based on cuisine type in New York City
     params_search = {'term':cuisine,'location':'New York City'}
-
     ###  Making a get request to the API
     req_search=requests.get(url_search, params=params_search, headers=headers)
-
     ### checks whether the get request is successful or not
+    # TODO: Email API error
+    try:
+        req_search == 200
+    except:
+        err_text = "Connection to yelp api failed. the is no input available for data processing. contact dheeraj rekula"
+        send_email(err_text)
+        err_cd = 5
+        sys.exit(5)
     #print('The status code is {}'.format(req_search.status_code))
-
+    #breakpoint()
     ### converting into json format 
     business_search = json.loads(req_search.text)
-    
-    ### sample - delete it at the end
-    '''
-    pprint(indian_restaurants[0]["categories"])
-    pprint(indian_restaurants[0]["id"])
-    pprint(indian_restaurants[0]["is_closed"])
-    pprint(indian_restaurants[0]["name"])
-    pprint(indian_restaurants[0]["price"])
-    pprint(indian_restaurants[0]["rating"])
-    pprint(indian_restaurants[0]["review_count"])
-    #breakpoint()
-    '''
-    ### writing relevant data in csv file. doing so because it is easy to import as pandas dataframe
+    ### reading only relevant data
     restaurants = business_search["businesses"]
-    rows = []
-
+    rows_business = []
     for restaurant in restaurants:
         row = {
             'alias': restaurant['alias'],
@@ -138,24 +150,34 @@ for cuisine in cuisines:
             'id': restaurant['id'],
             'id_closed': restaurant['is_closed'],
             'name': restaurant['name'],
-            #'price': restaurant['price'],
             'rating': restaurant['rating'],
             'review_count': restaurant['review_count']
         }
-        rows.append(row)
-        # useful for reviews api
+        rows_business.append(row)
+        # useful for reviews api below
         ids.append(row['id'])
-    
-        
-    for row in rows:
-        row_value = [v for v in row.values()]
-        google_sheets_data('business_search', row_value, google_sheet_index)
-        google_sheet_index = google_sheet_index + 1
-        time.sleep(150)
-        #breakpoint()
+    try:
+        for row in rows_business:                
+            row_value = [v for v in row.values()]
+            google_sheets_data('business_search', row_value, google_search_index)
+            google_search_index = google_search_index + 1
+            time.sleep(1)
+            if google_search_index % 49 == 0:
+                time.sleep(105)
+            else:
+                pass
 
-breakpoint()
-    #write_to_csv_details(rows, file_name_search, header = ['alias', 'categories', 'id', 'id_closed', 'name', 'rating', 'review_count'])
+        pass_text = "data upload of business search succeeded. if you find any issues contact dheeraj rekula"
+        send_email(pass_text)
+    except:
+        fail_text = "data upload of business search failed. contact the dheeraj rekula"
+        send_email(fail_text)
+        err_cd = 101
+        sys.exit(err_cd)
+    # TODO: Can i email connection error for business search
+    # Activate this code if you want to write business search data in text file.
+    # Preserving the functionality for future use
+    # write_to_csv_details(rows, file_name_search, header = ['alias', 'categories', 'id', 'id_closed', 'name', 'rating', 'review_count'])
 
     
 
@@ -164,44 +186,59 @@ breakpoint()
 #> BUSINESS REVIEWS API
 #######################
 ### reviews api is https://api.yelp.com/v3/businesses/{id}/reviews. 
-### it requires a business id to work. business ids are available in ids list
-#breakpoint()
-rows=[]
+### it requires a business id to work. business ids are available in 'ids' list
+
+time.sleep(150)
+  
+rows_reviews=[]
 for id in ids:
-    #pprint(id)
     url_reviews = f"https://api.yelp.com/v3/businesses/{id}/reviews"
     req_reviews=requests.get(url_reviews, headers=headers)
-    #pprint(req_reviews)
+    try:
+        req_reviews == 200
+    except:
+        err_text = "Connection to yelp reviews api failed. the is no input available for data processing. contact dheeraj rekula"
+        send_email(err_text)
+        err_cd = 6
+        sys.exit(5)
     business_review = json.loads(req_reviews.text)
     review_details = business_review['reviews']
-
+    # reading only relevant data
     for detail in review_details:
         row = {
-            'restaurant_id' : detail['id'],
+            'restaurant_id' : id,
+            'review_id' : detail['id'],
             'user_rating' : detail['rating'],
             'text' : detail['text']
         }
-        rows.append(row)
+        rows_reviews.append(row)
 
-    write_to_csv_details(rows, file_name_review, header = ['restaurant_id', 'text', 'user_rating'])
+# writes review data to gsheets
+google_review_index = 2
 
-        
+try:
+    for row in rows_reviews:
+        # doing this because i created a list of dictionaries above, as i am comfortable working with dictionaries
+        row_value = [v for v in row.values()]
+        google_sheets_data('business_reviews', row_value, google_review_index)
+        google_review_index = google_review_index + 1
+        # the following lines are important to ensure i maintain time restrictions on google drive api
+        time.sleep(1)
+        if google_review_index % 49 == 0:
+            time.sleep(105)
+        else:
+            pass
+
+    pass_text = "data upload of business reviews succeeded. if you find any issues contact dheeraj rekula"
+    send_email(pass_text)
+except:
+    fail_text = "data upload of business search failed. contact the dheeraj rekula"
+    send_email(fail_text)
+    err_cd = 102
+    sys.exit(102)
 
 
-#
-#    ###  searches based on cuisine type in New York City
-#    #params = {'term':cuisine,'location':'New York City'}
-#
-#    ###  Making a get request to the API
-#    req_reviews=requests.get(url_reviews, headers=headers)
-#
-#    ### checks whether the get request is successful or not
-#    #print('The status code is {}'.format(req_reviews.status_code))
-#
-#    ### converting into json format 
-#    business_review = json.loads(req_reviews.text)
-#    print(business_review)
-#    #business_reviews.append(business_review)
-#    #pprint(business_reviews)
-#
-#    breakpoint()
+    # TODO: Can i email review error
+
+
+    
