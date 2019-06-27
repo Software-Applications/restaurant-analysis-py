@@ -41,11 +41,14 @@ def cur_date():
 
 def google_sheets_data(gsheet, data_set = [], ind = 2):
     load_dotenv()
+    GOOGLE_API_CREDENTIALS = os.environ.get("GOOGLE_API_CREDENTIALS")
     DOCUMENT_ID = os.environ.get("GOOGLE_SHEET_ID", "OOPS! The desination does not exist")
     SHEET_NAME = gsheet
     scope = ["https://spreadsheets.google.com/feeds",'https://www.googleapis.com/auth/spreadsheets',"https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
-    file_name = os.path.join(os.getcwd(), "google_credentials", "gcreds.json")
-    creds = ServiceAccountCredentials.from_json_keyfile_name(file_name, scope)
+    #file_name = os.path.join(os.getcwd(), "google_credentials", "gcreds.json")
+    #creds = ServiceAccountCredentials.from_json_keyfile_name(file_name, scope)
+    #creds = ServiceAccountCredentials.from_json_keyfile_name(json.loads(GOOGLE_API_CREDENTIALS), scope)
+    creds = ServiceAccountCredentials._from_parsed_json_keyfile(json.loads(GOOGLE_API_CREDENTIALS), scope)
     client = gspread.authorize(creds)
     doc = client.open_by_key(DOCUMENT_ID)
     sheet = doc.worksheet(SHEET_NAME)
@@ -108,7 +111,8 @@ def google_sheets_data(gsheet, data_set = [], ind = 2):
 
 #> define your cuisines
 #cuisines = ['indian', 'Indian', 'american', 'American', 'chinese', 'Chinese', 'italian', 'Italian', 'thai', 'Thai', 'greek', 'Greek', 'middle_eastern', 'Middle_eastern']
-cuisines = ['indian', 'american', 'chinese', 'italian', 'thai', 'greek', 'middle_eastern']
+#cuisines = ['indian', 'american', 'chinese', 'italian', 'thai', 'greek', 'middle_eastern']
+cuisines = ['indian']
 
 # Activate this code if you want to write business search data in text file.
 # Preserving the functionality for future use
