@@ -112,7 +112,7 @@ def google_sheets_data(gsheet, data_set = [], ind = 2):
 #> define your cuisines
 #cuisines = ['indian', 'Indian', 'american', 'American', 'chinese', 'Chinese', 'italian', 'Italian', 'thai', 'Thai', 'greek', 'Greek', 'middle_eastern', 'Middle_eastern']
 #cuisines = ['indian', 'american', 'chinese', 'italian', 'thai', 'greek', 'middle_eastern']
-cuisines = ['indian']
+cuisines = ['indian', 'chinese', 'italian', 'japanese', 'mediterranean', 'thai', 'american', 'greek', 'fusion', 'korean', 'french', 'spanish', 'middle_eastern', 'moroccan', 'turkish', 'lebanese', 'peruvian', 'german', 'african', 'caribbean']
 
 # Activate this code if you want to write business search data in text file.
 # Preserving the functionality for future use
@@ -253,7 +253,7 @@ except:
 
 
 #cur_date()
-#google_sheets_data('meta', cur_date, 2)
+google_sheets_data('meta', cur_date, 2)
 
 
 
