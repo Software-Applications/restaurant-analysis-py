@@ -17,7 +17,9 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import time
 import sys
-from send_email_notification import send_email
+import sendgrid
+from sendgrid.helpers.mail import *
+#from send_email_notification import send_email
 
 ###############################
 # loading environment variables
@@ -53,83 +55,68 @@ def google_sheets_data(gsheet, data_set = [], ind = 2):
     doc = client.open_by_key(DOCUMENT_ID)
     sheet = doc.worksheet(SHEET_NAME)
     sheet.insert_row(data_set, ind)
-    # the commented code was an attempt to auto delete data from google sheets.
-    # preserving it for future use
+ 
+def google_sheets_cleanup(gsheet, rows, columns, header = []):
+    load_dotenv()
+    GOOGLE_API_CREDENTIALS = os.environ.get("GOOGLE_API_CREDENTIALS")
+    DOCUMENT_ID = os.environ.get("GOOGLE_SHEET_ID", "OOPS! The desination does not exist")
+    SHEET_NAME = gsheet
+    scope = ["https://spreadsheets.google.com/feeds",'https://www.googleapis.com/auth/spreadsheets',"https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
+    #file_name = os.path.join(os.getcwd(), "google_credentials", "gcreds.json")
+    #creds = ServiceAccountCredentials.from_json_keyfile_name(file_name, scope)
+    #creds = ServiceAccountCredentials.from_json_keyfile_name(json.loads(GOOGLE_API_CREDENTIALS), scope)
+    creds = ServiceAccountCredentials._from_parsed_json_keyfile(json.loads(GOOGLE_API_CREDENTIALS), scope)
+    client = gspread.authorize(creds)
+    doc = client.open_by_key(DOCUMENT_ID)
+    SHEET1 = doc.worksheet(SHEET_NAME)
+    doc.del_worksheet(SHEET1)
+    doc.add_worksheet(SHEET_NAME, rows, columns)
+    SHEET2 = doc.worksheet(SHEET_NAME)
+    SHEET2.insert_row(header, 1)
 
-    #rows = sheet.row_count
-    # deletes existing data with the api limits set by google
-    #for i in range(2, rows+1, 1):
-    #test = sheet.cell(2, 1)
-    #breakpoint()
-    #i = 1
-    #if sheet.cell(2, 1) == "":
-    #    break
-    #else:
-    #    sheet.delete_row(2)
-    #    i = i + 1
-    #    time.sleep(1)
-    #    if i % 49 == 0:
-    #        time.sleep(105)
-    #    else:
-    #        pass
-
-    
-# Activate this code if you want to write business search data in text file.
-# Preserving the functionality for future use
-
-#def write_to_csv_header(csv_filepath, header = []):
-#    csv_header = header
-#        
-#    with open(csv_filepath, "w", newline = '') as csv_file:
-#        writer = csv.DictWriter(csv_file, fieldnames=csv_header)
-#        writer.writeheader()
-#
-#
-#def write_to_csv_details(rows, csv_filepath, header = []):
-#    # rows should be a list of dictionaries
-#    # csv_filepath should be a string filepath pointing to where the data should be written
-#
-#    csv_header = header
-#
-#    with open(csv_filepath, "a", newline = '') as csv_file:
-#        writer = csv.DictWriter(csv_file, fieldnames=csv_header)
-#        # writer.writeheader() # uses fieldnames set above
-#        for row in rows:
-#            writer.writerow(row)
-#
-#def del_csv(file_name):
-#    if os.path.exists(file_name):
-#        os.remove(file_name)
-#
-#def text_parser(text_data):
-#    symbol_parser = re.findall(r'[^\\n]+', text_data)
-#    return symbol_parser
+def send_email(text):    
+    load_dotenv()
+    SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY", "OOPS, please set env var called 'SENDGRID_API_KEY'")
+    MY_EMAIL_ADDRESS = os.environ.get("MY_EMAIL_ADDRESS", "OOPS, please set env var called 'MY_EMAIL_ADDRESS'")
+    sg = sendgrid.SendGridAPIClient(apikey=SENDGRID_API_KEY)
+    ### load email variables
+    from_email = Email(MY_EMAIL_ADDRESS)
+    to_email = Email(MY_EMAIL_ADDRESS)
+    subject = "Example Notification"
+    sub_text = text
+    message_text = f"Dear User, \nThis is an automated email response. \n {sub_text}"
+    content = Content("text/plain", message_text)
+    mail = Mail(from_email, subject, to_email, content)
+    response = sg.client.mail.send.post(request_body=mail.get())
+    return response
 
 #####################################################################################
 #> STEP 1 : PULL REQUIRED DATA USING BUSINESS SEARCH, REVIEW APIS
 #####################################################################################
 
 #> define your cuisines
-#cuisines = ['indian', 'Indian', 'american', 'American', 'chinese', 'Chinese', 'italian', 'Italian', 'thai', 'Thai', 'greek', 'Greek', 'middle_eastern', 'Middle_eastern']
 #cuisines = ['indian']
 cuisines = ['indian', 'chinese', 'italian', 'japanese', 'mediterranean', 'thai', 'american', 'greek', 'fusion', 'korean', 'french', 'spanish', 'middle_eastern', 'moroccan', 'turkish', 'lebanese', 'peruvian', 'german', 'african', 'caribbean']
 
-# Activate this code if you want to write business search data in text file.
-# Preserving the functionality for future use
-#file_name_search = os.path.join(os.getcwd(), "data", "business_search.csv")
-#file_name_review = os.path.join(os.getcwd(), "data", "business_review.csv")
-#del_csv(file_name_search)
-#del_csv(file_name_review)
-#write_to_csv_header(file_name_search, header = ['alias', 'categories', 'id', 'id_closed', 'name', 'rating', 'review_count'])
-#write_to_csv_header(file_name_review, header = ['restaurant_id', 'text', 'user_rating'])
 
 #######################
 #> BUSINESS SEARCH API
 #######################
+# deletes the old dataset of business_search, and creates a new one with same name
+
+try:
+    google_sheets_cleanup('business_search', 10, 7, header = ['alias', 'category', 'id', 'id_closed', 'name','rating', 'review_count', 'update_date'])
+except:
+    err_text = " Business Reviews dataset has been sucessfully truncated"
+    send_email(err_text)
+    err_cd = 15
+    sys.exit(err_cd)
+
+time.sleep(105)
 
 # need to accumulate all businesses ids for reviews api
 ids = []
-#> BUSINESS SEARCH API. USED TO EXTRACT B
+#> BUSINESS SEARCH API. USED TO EXTRACT BUSINESS SEARCH DATA
 url_search='https://api.yelp.com/v3/businesses/search'
 google_search_index = 2
 for cuisine in cuisines:
@@ -162,7 +149,8 @@ for cuisine in cuisines:
             'id_closed': restaurant['is_closed'],
             'name': restaurant['name'],
             'rating': restaurant['rating'],
-            'review_count': restaurant['review_count']
+            'review_count': restaurant['review_count'],
+            'update_date' : cur_date()
         }
         rows_business.append(row)
         # useful for reviews api below
@@ -177,7 +165,6 @@ for cuisine in cuisines:
                 time.sleep(105)
             else:
                 pass
-
         pass_text = f"Data upload of business search for {cuisine} cuisine succeeded. If you find any issues contact dheeraj rekula"
         send_email(pass_text)
     except:
@@ -186,13 +173,8 @@ for cuisine in cuisines:
         err_cd = 101
         sys.exit(err_cd)
 
-    # Activate this code if you want to write business search data in text file.
-    # Preserving the functionality for future use
-
-    # write_to_csv_details(rows, file_name_search, header = ['alias', 'categories', 'id', 'id_closed', 'name', 'rating', 'review_count'])
-
-    
-
+#r = google_sheets_data_del('business_search')
+#breakpoint()
 
 #######################
 #> BUSINESS REVIEWS API
@@ -200,7 +182,18 @@ for cuisine in cuisines:
 ### reviews api is https://api.yelp.com/v3/businesses/{id}/reviews. 
 ### it requires a business id to work. business ids are available in 'ids' list
 
-time.sleep(150)
+time.sleep(105)
+
+# removes old dataset of business_reviews
+try:
+    google_sheets_cleanup('business_reviews', 10, 4, header = ['restaurant_id', 'review_id', 'user_rating', 'text', 'update_date'])
+except:
+    err_text = " Business Reviews dataset has been sucessfully truncated"
+    send_email(err_text)
+    err_cd = 15
+    sys.exit(err_cd)
+
+time.sleep(105)
   
 rows_reviews=[]
 for id in ids:
@@ -223,7 +216,8 @@ for id in ids:
             'restaurant_id' : id,
             'review_id' : detail['id'],
             'user_rating' : detail['rating'],
-            'text' : detail['text']
+            'text' : detail['text'],
+            'update_date' : cur_date()
         }
         rows_reviews.append(row)
 
