@@ -9,6 +9,9 @@ pandas
 gspread
 oauth2client
 sendgrid==5.6.0
+pandas
+#plotly
+matplotlib
 
 
 
