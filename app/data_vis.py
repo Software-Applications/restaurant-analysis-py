@@ -76,7 +76,7 @@ y_pos = category_agg['counts']
 bars = plt.bar(x_pos, y_pos, align='center')
 plt.xlabel('Quality Rating')
 plt.ylabel('# of Restaurants')
-plt.title(f"How did {user_input.lower()} restaurants perform??")
+plt.title(f"How did different cuisines perform??")
 for bar in bars:
     yval = bar.get_height()
     plt.text(bar.get_x() + 0.3, yval + 5, yval, horizontalalignment='left')
