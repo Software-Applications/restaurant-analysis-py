@@ -105,7 +105,7 @@ cuisines = ['indian', 'chinese', 'italian', 'japanese', 'mediterranean', 'thai',
 # deletes the old dataset of business_search, and creates a new one with same name
 
 try:
-    google_sheets_cleanup('business_search', 10, 7, header = ['alias', 'category', 'id', 'id_closed', 'name','rating', 'review_count', 'update_date'])
+    google_sheets_cleanup('business_search', 10, 7, header = ['alias', 'category', 'restaurant_id', 'id_closed', 'name','rating', 'review_count', 'update_date'])
 except:
     err_text = " Business Reviews dataset has been sucessfully truncated"
     send_email(err_text)

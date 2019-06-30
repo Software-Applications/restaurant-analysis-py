@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import io
 from wordcloud import WordCloud, STOPWORDS
-import time
+import nltk
 #import altair as alt
 
 #import plotly
@@ -55,23 +55,17 @@ business_reviews = google_sheets_data('business_reviews')
 bs_data = pd.DataFrame(business_search)
 br_data = pd.DataFrame(business_reviews)
 
-bs_review = bs_data[['category','id', 'review_count']]
-bs_rating = bs_data[['category', 'id', 'rating']]
+bs_review = bs_data[['category','restaurant_id', 'review_count']]
+bs_rating = bs_data[['category', 'restaurant_id', 'rating']]
 bs_review_agg = bs_review.groupby(['category']).sum().reset_index()
 bs_rating_agg = bs_rating.groupby(['category']).mean().reset_index()
-
-print("All cuisine types within the scope are defined in requirements document and readme.md file")
-user_input = input('Select a cuisine type - ')
 
 ###################################################################################
 ### Bar Chart - How good are restaurants in general?
 # creates a bar chart based on user input
-if user_input.lower() == 'all':
-    category_count = bs_data.groupby(['rating']).size().reset_index(name='counts')
-else:
-    bs_data_f = bs_data[bs_data['category'].str.lower() == user_input.lower()]
-    category_count = bs_data_f.groupby(['rating']).size().reset_index(name='counts')
 
+
+category_count = bs_data.groupby(['rating']).size().reset_index(name='counts')
 category_count['quality'] = category_count['rating'].apply(quality)
 del(category_count['rating'])
 category_agg = category_count.groupby(['quality']).sum().reset_index()
@@ -106,7 +100,6 @@ for bar in bars:
     xval = bar.get_width()
     plt.text(xval,bar.get_y(),xval)
 plt.grid(axis = 'x', which='minor')
-plt.savefig(savefile('restaurantcount.png'), bbox_inches='tight')
 plt.savefig(savefile('mostreviews.png'), bbox_inches='tight')
 plt.clf()
 #TODO: Background color, format axis labels, and text next to each bar
@@ -150,49 +143,53 @@ plt.annotate('Highly Rated', xy=(min_rev, mid_rat+0.02), fontsize = 6, c = 'red'
 plt.annotate('Promising', xy=(min_rev, min_rat+0.02), fontsize = 6, c = 'red')
 plt.savefig(savefile('scatter.png'), bbox_inches='tight')
 plt.clf()
-####################Working. Fix color coding################################3
-'''
-
-
-
-categories = list(bs_data['category'].unique())
-#new_cmap = plt.rand_cmap(100, type='bright', first_color_black=True, last_color_black=False, verbose=True)
-colors = ['blue', 'crimson', 'deeppink', 'violet', 'c', 'olive', 'grey', 'plum', 'palegreen', 'sienna', 'navy', 'darkcyan', 'hotpink', 'pink', 'indianred', 'magenta', 'purple', 'brown', 'dimgrey', 'g']
-
-for cat, col in zip(categories, colors):
-    bs_review_s = bs_review[bs_review['category'] == cat]
-    bs_rating_s = bs_rating[bs_rating['category'] == cat]
-    c_bs_rr = pd.concat([bs_review, bs_rating], axis = 1)
-    y_pos = c_bs_rr['rating']
-    x_pos = c_bs_rr['review_count']
-    plt.scatter(x_pos, y_pos, c = col, marker = 'o', s=1, label = cat)
-    plt.legend()
-plt.show()
-'''
-###############################################################################
-
-################working code###################################################3
-
-#########################################################################
+#TODO: Clean up labels
 
 #################Working. Just use adjective
-'''
-text_blocks = br_data['text']
+
+print("All cuisine types within the scope are defined in requirements document and readme.md file")
+user_input = input('Select a cuisine type - ')
+#nltk.download()
+#TODO: mention about nltk.download in requirements document
+cumm_bs_br = bs_data.merge(br_data, on = 'restaurant_id', how = 'inner')
+cumm_bs_br_ui = cumm_bs_br[cumm_bs_br['category'].str.lower() == user_input.lower()]
+#breakpoint()
+text_blocks = cumm_bs_br_ui['text']
 big_text = ' \n '
 for block in text_blocks:
     big_text = big_text + block
 
 #breakpoint()
-stopwords = set(STOPWORDS)
-stopwords.update(['\n', '/n', 'everything', 'review', ])
-wc = WordCloud(max_font_size=50, background_color = "white", max_words = 200, stopwords=stopwords).generate(big_text)
-plt.figure()
-plt.imshow(wc, interpolation = 'bilinear')
-plt.axis('off')
-plt.show()
 
-breakpoint()
-'''
+tokens = nltk.word_tokenize(big_text)
+pos = nltk.pos_tag(tokens)
+adj_words = [p[0] for p in pos if p[1] in ['JJ', 'JJR', 'JJS']]
+noun_words = [p[0] for p in pos if p[1] in ['NN', 'NNP', 'NNS']]
+adj_str = ' '
+noun_str = ' '
+for s in adj_words:
+    adj_str = adj_str + ' ' + s
+
+for n in noun_words:
+    noun_str = noun_str + ' ' + n
+
+stopwords = set(STOPWORDS)
+stopwords.update(['\n', '/n', 'everything', 'review', 'indian', 'Indian', 'city', 'ok', 'city', 'went', 'couple', 'time', 'village', 'yelp' ])
+wc_adj = WordCloud(max_font_size=50, background_color = "white", max_words = 200, stopwords=stopwords).generate(adj_str)
+plt.figure()
+plt.imshow(wc_adj, interpolation = 'bilinear')
+plt.axis('off')
+plt.savefig(savefile('adjective_wc.png'), bbox_inches = 'tight')
+
+wc_noun = WordCloud(max_font_size=50, background_color = "white", max_words = 200, stopwords=stopwords).generate(noun_str)
+plt.figure()
+plt.imshow(wc_noun, interpolation = 'bilinear')
+plt.axis('off')
+plt.savefig(savefile('noun_wc.png'), bbox_inches = 'tight')
+plt.clf()
+
+#breakpoint()
+
 
 
 
