@@ -57,8 +57,7 @@ def float_format(data):
 
 if __name__ == "__main__":
     
-    ### Defining the initial datasets
-
+    ### Defining the initial datasets. THey will be used for the plots created below
     business_search = google_sheets_data('business_search_bk')
     business_reviews = google_sheets_data('business_reviews_bk')
     bs_data = pd.DataFrame(business_search)
@@ -72,6 +71,10 @@ if __name__ == "__main__":
 
     colors = ['blue', 'crimson', 'deeppink', 'violet', 'c', 'olive', 'grey', 'plum', 'palegreen', 'sienna', 'navy', 'darkcyan', 'hotpink', 'pink', 'indianred', 'magenta', 'purple', 'brown', 'dimgrey', 'g']
     cuisine_types = bs_data.category.unique().tolist()
+
+    #setting size of the canvas
+    plt.figure(figsize=(12,12))
+
     ###################################################################################
     ### Bar Chart - How good are restaurants in general?
     # creates a bar chart based on user input
@@ -95,8 +98,6 @@ if __name__ == "__main__":
     plt.savefig(savefile('1 restaurantcount.png'), bbox_inches='tight')
     plt.clf()
 
-    #TODO: Background color, format axis labels, and text above each bar
-
     #########################################################################################
     ### HBar Chart - Popular Cusines
     # Assuming the one with highest reviews is more popular
@@ -114,13 +115,12 @@ if __name__ == "__main__":
     plt.grid(axis = 'x', which='minor')
     plt.savefig(savefile('2 mostreviews.png'), bbox_inches='tight')
     plt.clf()
-    #TODO: Background color, format axis labels, and text next to each bar
+
     #############################################################################################
     ### Scatter Plot to show reviews and ratings in a single view to get deeper insight into what are the best performing cusines
     # Assuming higher number of reviews indicates more popularity
     cumm_bs_rr = bs_review_agg.merge(bs_rating_agg, on = 'category', how = 'inner')
     categories = list(cumm_bs_rr['category'])
-    #breakpoint()
     metrics = []
     for i in range(0,20,1):
         rating = cumm_bs_rr.iloc[i]['rating']
@@ -130,8 +130,8 @@ if __name__ == "__main__":
 
     for metric, color, category in zip(metrics, colors, categories):
         y, x = metric
-        plt.scatter(x, y, alpha = 0.8, marker = '*', c = color, s = 30, label = category)
-        plt.text(x-500, y-0.01, category, fontsize = 6)
+        plt.scatter(x, y, alpha = 0.8, marker = '*', c = color, s = 50, label = category)
+        plt.text(x-500, y-0.01, category, fontsize = 8)
 
     plt.xlabel('# of Reviews')
     plt.ylabel('Avg. Rating')
@@ -146,8 +146,8 @@ if __name__ == "__main__":
 
     plt.xlim((min_rev, max_rev))
     plt.ylim((min_rat, max_rat))
-    plt.plot([mid_rev,mid_rev],[min_rat-1000,max_rat+1000], linewidth=1, color='gray' )
-    plt.plot([min_rev-1000,max_rev+1000],[mid_rat,mid_rat], linewidth=1, color='gray' )
+    plt.plot([mid_rev,mid_rev],[min_rat-1000,max_rat+1000], linewidth=0.5, color='gray' )
+    plt.plot([min_rev-1000,max_rev+1000],[mid_rat,mid_rat], linewidth=0.5, color='gray' )
 
     plt.annotate('Leaders', xy=(mid_rev, mid_rat+0.02), fontsize = 6, c = 'red')
     plt.annotate('Popular', xy=(mid_rev, min_rat+0.02), fontsize = 6, c = 'red')
@@ -155,15 +155,14 @@ if __name__ == "__main__":
     plt.annotate('Promising', xy=(min_rev, min_rat+0.02), fontsize = 6, c = 'red')
     plt.savefig(savefile('3 scatter.png'), bbox_inches='tight')
     plt.clf()
-    #TODO: Clean up labels
+
     ##############################################################################
     ### Sentiment Anlayzer
-    # show people mood when they were giving feedback
+    # shows people mood when they were giving feedback
     sid = SentimentIntensityAnalyzer()
     cat_txts = cumm_bs_br[['category', 'text']]
 
     sentiment_list = []
-    #sentiment_df = pd.DataFrame(columns=['cuisine_type', 'positive_score', 'negative_score'])
     columns = ['cuisine_type', 'positive_score', 'negative_score']
     i = 0
     index_lst = cat_txts.index.values.tolist()
@@ -171,7 +170,6 @@ if __name__ == "__main__":
     for i in index_lst:
         review = cat_txts['text'][i]
         sentiment = sid.polarity_scores(review)
-        #breakpoint()
         row = [
             cat_txts['category'][i],
             sentiment['pos'],

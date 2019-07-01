@@ -14,7 +14,7 @@ pandas
 matplotlib
 wordcloud
 nltk
-itertools
+pytest
 
 
 

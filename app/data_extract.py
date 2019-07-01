@@ -96,8 +96,8 @@ if __name__ == "__main__":
     #####################################################################################
 
     #> define your cuisines
-    #cuisines = ['indian']
-    cuisines = ['indian', 'chinese', 'italian', 'japanese', 'mediterranean', 'thai', 'american', 'greek', 'fusion', 'korean', 'french', 'spanish', 'middle_eastern', 'moroccan', 'turkish', 'lebanese', 'peruvian', 'german', 'african', 'caribbean']
+    cuisines = ['indian']
+    #cuisines = ['indian', 'chinese', 'italian', 'japanese', 'mediterranean', 'thai', 'american', 'greek', 'fusion', 'korean', 'french', 'spanish', 'middle_eastern', 'moroccan', 'turkish', 'lebanese', 'peruvian', 'german', 'african', 'caribbean']
 
 
     #######################
