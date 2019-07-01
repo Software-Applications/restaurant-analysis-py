@@ -209,8 +209,10 @@ if __name__ == "__main__":
     # User needs to run nltk.download()
     # TODO: mention that user need to run import nltk; nltk.download() for wordcloud in requirement and help document
 
+    print("=========================")
     print("Please refer to README.MD file to identify the cusines within the scope of this project. To select all cusines, simply enter all")
-    user_input = input('Select a cuisine type - ')
+    print("\n")
+    user_input = input('Select a cuisine type for your word cloud - ')
 
 
     if user_input.lower() == 'all':
@@ -220,6 +222,7 @@ if __name__ == "__main__":
         text_blocks = cumm_bs_br_ui['text']
     else:
         print("Oops!! You entered an invalid value. Please refer to the README.MD file to identify cuisines within the scope.")
+        print("\n")
         print("Run the program again")
         sys.exit(5)
 
@@ -240,7 +243,7 @@ if __name__ == "__main__":
         noun_str = noun_str + ' ' + n
 
     stopwords = set(STOPWORDS)
-    stopwords.update(['\n', '/n', 'everything', 'single', 'overall', 'many', 'relative', 'review', 'indian', 'Indian', 'city', 'ok', 'city', 'went', 'couple', 'time', 'village', 'yelp' ])
+    stopwords.update(['lot', 'amazing', 'nice', 'busy', 'super', 'restaurant', 'year', 'week', 'food', 'order', 'day', 'option', 'friday', 'lunch', 'friend', 'portion', 'happy', 'much', 'mixed', 'beautiful', 'great', 'best', 'favorite', 'excellent', 'new', 'second', 'perfect', 'wonderful', 'little', 'bad', 'sure', 'last', 'able', 'long', 'high', 'good', 'first', 'small', 'open', 'brunch', 'better','night', 'star', 'bit', 'times', 'family', 'came', 'dinner', 'dish', 'lot', 'thing', 'hour', 'party','\n', '/n', 'everything', 'single', 'overall', 'many', 'relative', 'review', 'indian', 'Indian', 'city', 'ok', 'city', 'went', 'couple', 'time', 'village', 'yelp' ])
     wc_adj = WordCloud(max_font_size=50, background_color = "white", max_words = 200, stopwords=stopwords).generate(adj_str)
     plt.figure()
     plt.imshow(wc_adj, interpolation = 'bilinear')
@@ -253,6 +256,10 @@ if __name__ == "__main__":
     plt.axis('off')
     plt.savefig(savefile('6 noun_wc.png'), bbox_inches = 'tight')
     plt.clf()
+
+print("\n")
+print("=========================")
+print("The plots have been generated for you. Please go to the plot_images drive to access them. Thank you")
 
 
 
