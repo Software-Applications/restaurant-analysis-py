@@ -1,0 +1,15 @@
+# yelp apikey
+API_KEY = "<Your Yelp API KEY>"
+
+# for updating gsheets 
+GOOGLE_SHEET_ID= "<Your Google Sheet ID>"
+BUSINESS_DATA = "business_search"
+REVIEW_DATA = "business_reviews"
+
+
+# for emailing functionality through sendgrid
+SENDGRID_API_KEY="<Your SendGrid API Key>"
+
+
+# generic: used by google drive api and send grip
+MY_EMAIL_ADDRESS="<Your Email from SendGrid account>"

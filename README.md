@@ -1,20 +1,27 @@
-# "Restaurant Analysis" Project
+# "Restaurant Analysis" Project (Class Project nyu-info-2335-201905)
 
-This is a data exploration project using data taken from YELP API, which helps potential investors understand customer dinining preferences so that they can make wise investment decisions when setting up new restaurants
+This is a course project for nyu-info-2335-201905 at Stern School of Business
 
-This application provides stock recommendations by issuing requests to the [AlphaVantage Stock Market API](https://www.alphavantage.co/) in order to provide automated stock or cryptocurrency trading recommendations.
+I have built this data exploration tool using sample data from Yelp. It helps potential investors analyze customer dining preferences so that they can make wise investment decisions when setting up new restaurants in New York City.
+
+## Functionality
+This tool can do the following
+  + Extract data from Yelp and write it to Google Sheets
+  + Send an email to the end user updating them about data extract process
+  + Read data from Google Sheets to create visuals
+  + Send an email suggesting the visuals are ready to be viewed.
 
 ## Scope
 
-For simplicity fo demonstration, and due to time restrictions set by GoogleDrive API, I have restricted the scope of data to below:
+For simplicity of demonstration, and due to time restrictions set by GoogleDrive API, I have restricted the scope of data to below:
 
-### Cuisines - 
+### Cuisines -
 'indian', 'chinese', 'italian', 'japanese', 'mediterranean', 'thai', 'american', 'greek', 'fusion', 'korean', 'french', 'spanish', 'middle_eastern', 'moroccan', 'turkish', 'lebanese', 'peruvian', 'german', 'african', 'caribbean'
 
 ### Location
-'new york City'
+'new york city'
 
-These values have been embedded within the script. No further action is needed at your end. 
+These values have been harcoded in the script. No further action is needed at your end, unless you want to change the scope 
 
 ## Prerequisites
 
@@ -26,11 +33,9 @@ These values have been embedded within the script. No further action is needed a
   + Google Drive API
   + Google Drive service account and its associated JSON file
 
-https://www.yelp.com/developers/documentation/v3/authentication
- 
 ## Installation
 
-Fork this repository under your own control, then clone or download the resulting repository onto your computer. Then navigate there from the command line:
+Fork this repository under your own control, then clone or download the resulting repository onto your computer. Then navigate there from the command line using the command line below:
 
 ```sh
 cd <Your Path>/RESTAURANT-ANALYSIS-PY
@@ -51,7 +56,12 @@ From inside the virtual environment, install package dependencies by running the
 pip install -r requirements.txt
 ```
 
-Talk about download_nltk ()  app
+THe workclouds and sentiment analyzer in this project were built using the nltk package. Before you can run the script to generate them, you need to run the yelp_nltk.py file from your project respository using the command below
+
+```sh
+python yelp_nltk.py
+```
+Doing so will activate custom trained models from nltk, which are used to tokenize sentence to create work clouds, and initiate sentiment intensity analyzer to calculare polarity scores, which are doing sentiment analysis.
 
 ## Setup
 
@@ -67,9 +77,27 @@ For email capabilities, [sign up for a SendGrid account](https://signup.sendgrid
     MY_EMAIL_ADDRESS = "<Your email address>"  # (SendGrid will use this email to send notification to detination email addresses)
 
 ### Google Drive API Credentials
-Write something here. Mention about Google Drive API key, Service account, Sheets ID, Table creation, gcreds.json file
+TO use google drive api to write data to google sheets, we need to set up a service account and generate its associated JSON credentials file. Follow the below steps in sequential order
+  + Click on this [link](https://consle.developers.google.com)
+  + Create a new project, and give it your own name
+  + GO inside the project.
+  + From the menu, go to API & Services
+  + Search and enable Gogle Drive API and Google Sheet API
+  + From the project dashbord, click on 'Create Credentials' to create a service account Key
+  + Select a name for your service account. GIve it 'Owner' role. Make sure for the Key type, you select JSON
+  + The above step will down a file to your computer. Rename this file as gcreds.json, and copy it to google_credentials folder in project respository
 
+### Google Sheets Dataset
+You need this dataset to collect data from Yelp API. Follow the steps below to set up Google Sheets
+  + Go to Google sheets using your gmail account
+  + Create a new sheet. Give it anyname.
+  + Create 2 tabs - a) business_search b) business_reviews. The business search tab holds data about restaurant businesses and the business_reviews tab holds data of customer reviews.
+  + Go to your gcreds.json file in google_credentials folder. Copy the 'Client Email' and give this email id write privileges to this google sheet document.
+  + copy the google sheet id from the url, and paste it in .env file using below syntax
+  
+  GOOGLE_SHEET_ID="1hSin9PpTR6DFnXsdckXF9eJbb97qlh8TtA-smcLOpZY"
 
+A sample of .env called .env example is available in project respository. You could use is as a template for .env file.
 
 Don't worry, the ".env" has already been [ignored](/.gitignore) from version control for you!
 
