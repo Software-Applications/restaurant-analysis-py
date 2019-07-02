@@ -9,10 +9,10 @@ import requests
 from dotenv import load_dotenv
 import datetime
 import os
-import csv
-import re
+#import csv
+#import re
 import json
-from pprint import pprint
+#from pprint import pprint
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import time

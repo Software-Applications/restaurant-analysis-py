@@ -4,14 +4,14 @@ from dotenv import load_dotenv
 import os
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-from pprint import pprint
+#from pprint import pprint
 import pandas as pd
-import numpy as np
+#import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import io
 import sys
-from itertools import chain
+#from itertools import chain
 from wordcloud import WordCloud, STOPWORDS
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
