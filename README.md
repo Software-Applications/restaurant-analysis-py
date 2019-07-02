@@ -1,4 +1,4 @@
-# "Restaurant Analysis" Project (Class Project nyu-info-2335-201905)
+# "Restaurant Analysis" Project
 
 This is a course project for nyu-info-2335-201905 at Stern School of Business
 
@@ -30,8 +30,7 @@ These values have been harcoded in the script. No further action is needed at yo
   + Pip
   + Yelp Fusion API
   + SendGrid API Key
-  + Google Drive API
-  + Google Drive service account and its associated JSON file
+  + Google Drive API # (google service account and its associated json file)
 
 ## Installation
 
@@ -56,17 +55,17 @@ From inside the virtual environment, install package dependencies by running the
 pip install -r requirements.txt
 ```
 
-THe workclouds and sentiment analyzer in this project were built using the nltk package. Before you can run the script to generate them, you need to run the yelp_nltk.py file from your project respository using the command below
+The wordclouds and sentiment analyzer in this project are built using the nltk package. Before you can run the script to generate them, you need to run the below command from the command line.
 
 ```sh
 python yelp_nltk.py
 ```
-Doing so will activate custom trained models from nltk, which are used to tokenize sentence to create work clouds, and initiate sentiment intensity analyzer to calculare polarity scores, which are doing sentiment analysis.
+Doing so will activate custom trained models from nltk package, which are used to tokenize sentences to create wordclouds, and run sentiment intensity analyzer to calculate polarity scores, which are useful for calculating sentiment scores.
 
 ## Setup
 
 ### Yelp
-Go to [Yelp Developers](https://www.yelp.com/developers) and sign up for an account. After signing in, use Yelp Fusion to generate a Yelp API key. Detailed instruction for creating the key are available [here.](https://www.yelp.com/developers/documentation/v3/authentication). After obtaiing the API key, create a new file in this repository called ".env", and update the contents of the ".env" file to specify your API key from Yelp using the syntax below
+Go to [Yelp Developers](https://www.yelp.com/developers) and sign up for an account. After signing in, use Yelp Fusion to generate a Yelp API key. Detailed instruction for creating the key are available [here.](https://www.yelp.com/developers/documentation/v3/authentication)After obtaining the API key, create a new file in this repository called ".env", and update the contents of the ".env" file to specify your API key from Yelp using the syntax below
 
     API_KEY = "<Your Yelp API Key>"
 
@@ -76,26 +75,25 @@ For email capabilities, [sign up for a SendGrid account](https://signup.sendgrid
     SENDGRID_API_KEY = "<Your SendGrid API Key>"
     MY_EMAIL_ADDRESS = "<Your email address>"  # (SendGrid will use this email to send notification to detination email addresses)
 
-### Google Drive API Credentials
-TO use google drive api to write data to google sheets, we need to set up a service account and generate its associated JSON credentials file. Follow the below steps in sequential order
+### Google Drive
+To use google drive api to write data to google sheets, we need to set up a service account and generate its associated JSON credentials file. Follow the below steps in sequential order
   + Click on this [link](https://consle.developers.google.com)
-  + Create a new project, and give it your own name
-  + GO inside the project.
+  + Create a new project, and give it your own name. Go inside the project.
   + From the menu, go to API & Services
   + Search and enable Gogle Drive API and Google Sheet API
   + From the project dashbord, click on 'Create Credentials' to create a service account Key
-  + Select a name for your service account. GIve it 'Owner' role. Make sure for the Key type, you select JSON
-  + The above step will down a file to your computer. Rename this file as gcreds.json, and copy it to google_credentials folder in project respository
+  + Select a name for your service account. Give it 'Owner' role. Make sure for the JSON is selected for key type
+  + The above step will download a file to your computer. Rename this file as gcreds.json, and copy it to google_credentials folder in project respository
 
 ### Google Sheets Dataset
 You need this dataset to collect data from Yelp API. Follow the steps below to set up Google Sheets
   + Go to Google sheets using your gmail account
   + Create a new sheet. Give it anyname.
-  + Create 2 tabs - a) business_search b) business_reviews. The business search tab holds data about restaurant businesses and the business_reviews tab holds data of customer reviews.
-  + Go to your gcreds.json file in google_credentials folder. Copy the 'Client Email' and give this email id write privileges to this google sheet document.
-  + copy the google sheet id from the url, and paste it in .env file using below syntax
+  + Create 2 tabs - a) business_search b) business_reviews. The business search tab holds data about restaurant businesses and the business_reviews tab holds data about customer reviews.
+  + Go to your gcreds.json file in google_credentials folder. Copy the 'Client Email' and give this email id 'edit' privileges to this google sheet document.
+  + Copy the google sheet id from the url, and paste it in .env file using below syntax
   
-  GOOGLE_SHEET_ID="1hSin9PpTR6DFnXsdckXF9eJbb97qlh8TtA-smcLOpZY"
+  GOOGLE_SHEET_ID="<Your Google Sheet ID>"
 
 A sample of .env called .env example is available in project respository. You could use is as a template for .env file.
 
@@ -109,11 +107,11 @@ python app/data_extract.py
 ```
 The scripts takes about an hour to complete. This is due to API restrictions by Google
 
-After data extract is completed, run the data vix script to generate visuals:
+After data extract is completed, run the data vis script to generate visuals:
 ```py
-python app/data_extract.py
+python app/data_vis.py
 ```
-When prompted for an input to generate wordclouds, enter a cusine type that is within the scope of this project, mentioned above
+When prompted for an input to generate wordclouds, enter a single cusine type that is within the scope of this project, mentioned above. To select all cusines, simply eneter 'all'.
 
 ## Testing
 
