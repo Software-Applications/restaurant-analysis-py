@@ -23,6 +23,21 @@ For simplicity of demonstration, and due to time restrictions set by GoogleDrive
 
 These values have been harcoded in the script. No further action is needed at your end, unless you want to change the scope 
 
+## Software Output
+The following data visuals will be created
+  + Restaurant Performance – a bar chart to show how the NYC restaurants performed overall. The performance of restaurants has been classified using restaurant rating.
+    + Rating = 5 then ‘Exceptional’
+    + Rating = 4 or 4.5 then ‘Very Good’
+    + Rating = 3 or 3.5 then ‘Average’
+    + Otherwise poor
+  It shows how the competition is performing at a high level
+
+  + Popular Cuisines – shows the which cuisines are more compared to others by counting the number of reviews each cuisine got. The assumption is that cuisines that are more popular have more visitors and hence more reviews on Yelp.
+  + Rating vs Popularity – Cross sectional scatter plot that compares cuisines against Rating and Popularity metrics. The scatter plot is divided into 4 quadrants to identify  leaders clearly.
+  + Aggregate Sentiment Reviews – Show an average of positive and negative sentiment for each cuisine. It gives a general idea of how good or bad each cuisine in NYC and compares with sentiments of other cuisines. Provides insights about competition at a Cuisine level.
+  + Adjective Word Cloud – gives you some important adjectives people use to describe their experiences. Using this visual, investors can learn customer expectations
+  + Noun Word Cloud – gives you some important nouns people use to describe experiences. Using this visual, investors can learn about customer expectations
+
 ## Prerequisites
 
   + Anaconda 4.6.14 # (Earlier versions of Anaconda could work too. I built this application using v 4.6.14)
