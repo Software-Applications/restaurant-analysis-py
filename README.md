@@ -25,12 +25,11 @@ These values have been harcoded in the script. No further action is needed at yo
 
 ## Software Output
 The following data visuals will be created
-  + Restaurant Performance – a bar chart to show how the NYC restaurants performed overall. The performance of restaurants has been classified using restaurant rating.
+  + Restaurant Performance – a bar chart to show how the NYC restaurants performed overall. The performance of restaurants has been classified using restaurant rating. It shows how the competition is performing at a high level
     + Rating = 5 then ‘Exceptional’
     + Rating = 4 or 4.5 then ‘Very Good’
     + Rating = 3 or 3.5 then ‘Average’
     + Otherwise poor
-  It shows how the competition is performing at a high level
 
   + Popular Cuisines – shows the which cuisines are more compared to others by counting the number of reviews each cuisine got. The assumption is that cuisines that are more popular have more visitors and hence more reviews on Yelp.
   + Rating vs Popularity – Cross sectional scatter plot that compares cuisines against Rating and Popularity metrics. The scatter plot is divided into 4 quadrants to identify  leaders clearly.
@@ -108,7 +107,7 @@ You need this dataset to collect data from Yelp API. Follow the steps below to s
   + Go to your gcreds.json file in google_credentials folder. Copy the 'Client Email' and give this email id 'edit' privileges to your google sheet document.
   + Copy the google sheet id from the url, and paste it in .env file using below syntax
   
-  GOOGLE_SHEET_ID="<Your Google Sheet ID>"
+  GOOGLE_SHEET_ID = "<Your Google Sheet ID>"
 
 A sample of .env called .envexample is available in project respository. You could use is as a template for .env file.
 
