@@ -4,23 +4,34 @@ from dotenv import load_dotenv
 import os
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-#from pprint import pprint
 import pandas as pd
-#import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import io
 import sys
-#from itertools import chain
 from wordcloud import WordCloud, STOPWORDS
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
-#import altair as alt
+import sendgrid
+from sendgrid.helpers.mail import *
 
-#import plotly
-#import plotly.plotly as py
-#import plotly.graph_objs as go
 
+def send_email(text, sub):    
+    load_dotenv()
+    SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY", "OOPS, please set env var called 'SENDGRID_API_KEY'")
+    MY_EMAIL_ADDRESS = os.environ.get("MY_EMAIL_ADDRESS", "OOPS, please set env var called 'MY_EMAIL_ADDRESS'")
+    CLIENT_EMAIL_ADDRESS = os.environ.get("MY_EMAIL_ADDRESS", "OOPS, please set env var called 'CLIENT_EMAIL_ADDRESS'")
+    sg = sendgrid.SendGridAPIClient(apikey=SENDGRID_API_KEY)
+    ### load email variables
+    from_email = Email(MY_EMAIL_ADDRESS)
+    to_email = Email(CLIENT_EMAIL_ADDRESS)
+    subject = sub
+    sub_text = text
+    message_text = f"Dear User, \nThis is an automated email response. \n {sub_text}"
+    content = Content("text/plain", message_text)
+    mail = Mail(from_email, subject, to_email, content)
+    response = sg.client.mail.send.post(request_body=mail.get())
+    return response
 
 def google_sheets_data(gsheet):    
     load_dotenv()
@@ -58,8 +69,8 @@ def float_format(data):
 if __name__ == "__main__":
     
     ### Defining the initial datasets. THey will be used for the plots created below
-    business_search = google_sheets_data('business_search_bk')
-    business_reviews = google_sheets_data('business_reviews_bk')
+    business_search = google_sheets_data('business_search')
+    business_reviews = google_sheets_data('business_reviews')
     bs_data = pd.DataFrame(business_search)
     br_data = pd.DataFrame(business_reviews)
     cumm_bs_br = bs_data.merge(br_data, on = 'restaurant_id', how = 'inner')
@@ -90,12 +101,12 @@ if __name__ == "__main__":
     bars = plt.bar(x_pos, y_pos, align='center')
     plt.xlabel('Quality Rating')
     plt.ylabel('# of Restaurants')
-    plt.title(f"How did different cuisines perform??")
+    plt.title(f"How did NYC restaurants perform??")
     for bar in bars:
         yval = bar.get_height()
         plt.text(bar.get_x() + 0.3, yval + 5, yval, horizontalalignment='left')
     plt.grid(axis = 'y', which='minor')
-    plt.savefig(savefile('1 restaurantcount.png'), bbox_inches='tight')
+    plt.savefig(savefile('1-restaurant_performance.png'), bbox_inches='tight')
     plt.clf()
 
     #########################################################################################
@@ -113,7 +124,7 @@ if __name__ == "__main__":
         xval = bar.get_width()
         plt.text(xval,bar.get_y(),xval)
     plt.grid(axis = 'x', which='minor')
-    plt.savefig(savefile('2 mostreviews.png'), bbox_inches='tight')
+    plt.savefig(savefile('2-popular_cuisines.png'), bbox_inches='tight')
     plt.clf()
 
     #############################################################################################
@@ -135,7 +146,7 @@ if __name__ == "__main__":
 
     plt.xlabel('# of Reviews')
     plt.ylabel('Avg. Rating')
-    plt.title("The best restaurants")
+    plt.title("Rating vs Popularity")
 
     min_rev = min(cumm_bs_rr['review_count'])
     max_rev = max(cumm_bs_rr['review_count'])
@@ -153,7 +164,7 @@ if __name__ == "__main__":
     plt.annotate('Popular', xy=(mid_rev, min_rat+0.02), fontsize = 6, c = 'red')
     plt.annotate('Highly Rated', xy=(min_rev, mid_rat+0.02), fontsize = 6, c = 'red')
     plt.annotate('Promising', xy=(min_rev, min_rat+0.02), fontsize = 6, c = 'red')
-    plt.savefig(savefile('3 scatter.png'), bbox_inches='tight')
+    plt.savefig(savefile('3-rating_vs_populatiry.png'), bbox_inches='tight')
     plt.clf()
 
     ##############################################################################
@@ -191,7 +202,7 @@ if __name__ == "__main__":
     bars2 = plt.barh(y, x_neg, align='center', color = 'red')
     plt.xlabel('Sentiment Score')
     plt.ylabel('Cusine Type')
-    plt.title("Sentiment Analysis of user feedback")
+    plt.title("Sentiment Analysis of customer reviews")
 
 
     for bar1, bar2 in zip(bars1, bars2):
@@ -200,7 +211,7 @@ if __name__ == "__main__":
         xval2 = bar2.get_width()
         plt.text(xval2,bar2.get_y()+0.01,float_format(xval2))
 
-    plt.savefig(savefile('4 sentiment.png'), bbox_inches='tight')
+    plt.savefig(savefile('4-aggregate_sentiment_reviews.png'), bbox_inches='tight')
     plt.clf()
 
     ################################################################################################
@@ -248,18 +259,21 @@ if __name__ == "__main__":
     plt.figure()
     plt.imshow(wc_adj, interpolation = 'bilinear')
     plt.axis('off')
-    plt.savefig(savefile('5 adjective_wc.png'), bbox_inches = 'tight')
+    plt.savefig(savefile('5-adjective_wc.png'), bbox_inches = 'tight')
 
     wc_noun = WordCloud(max_font_size=50, background_color = "white", max_words = 200, stopwords=stopwords).generate(noun_str)
     plt.figure()
     plt.imshow(wc_noun, interpolation = 'bilinear')
     plt.axis('off')
-    plt.savefig(savefile('6 noun_wc.png'), bbox_inches = 'tight')
+    plt.savefig(savefile('6-noun_wc.png'), bbox_inches = 'tight')
     plt.clf()
 
-print("\n")
-print("=========================")
-print("The plots have been generated for you. Please go to the plot_images drive to access them. Thank you")
+    pass_text = "Data Visuals have been generated and saved in the plot_images drive."
+    sub = "Data Visual status"
+    print("\n")
+    print("=========================")
+    print(pass_text, )
+    send_email(pass_text, sub)
 
 
 

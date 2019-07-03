@@ -1,25 +1,15 @@
 requests
 python-dotenv
 pprint
-#re
-#json
-#csv
+json
 datetime
 pandas
 gspread
 oauth2client
 sendgrid==5.6.0
 pandas
-#plotly
 matplotlib
 wordcloud
 nltk
 pytest
-
-
-
-#TODO: Which ones are modules vs packages?
-# re, json, csv failed to load. check it later
-
-# automate data push into csv
-# truncates reviews. is that ok?
+sys

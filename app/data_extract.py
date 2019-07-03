@@ -42,14 +42,14 @@ def cur_date():
 
 def google_sheets_data(gsheet, data_set = [], ind = 2):
     load_dotenv()
-    GOOGLE_API_CREDENTIALS = os.environ.get("GOOGLE_API_CREDENTIALS")
+    #GOOGLE_API_CREDENTIALS = os.environ.get("GOOGLE_API_CREDENTIALS")
     DOCUMENT_ID = os.environ.get("GOOGLE_SHEET_ID", "OOPS! The desination does not exist")
     SHEET_NAME = gsheet
     scope = ["https://spreadsheets.google.com/feeds",'https://www.googleapis.com/auth/spreadsheets',"https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
-    #file_name = os.path.join(os.getcwd(), "google_credentials", "gcreds.json")
-    #creds = ServiceAccountCredentials.from_json_keyfile_name(file_name, scope)
+    file_name = os.path.join(os.getcwd(), "google_credentials", "gcreds.json")
+    creds = ServiceAccountCredentials.from_json_keyfile_name(file_name, scope)
     #creds = ServiceAccountCredentials.from_json_keyfile_name(json.loads(GOOGLE_API_CREDENTIALS), scope)
-    creds = ServiceAccountCredentials._from_parsed_json_keyfile(json.loads(GOOGLE_API_CREDENTIALS), scope)
+    #creds = ServiceAccountCredentials._from_parsed_json_keyfile(json.loads(GOOGLE_API_CREDENTIALS), scope)
     client = gspread.authorize(creds)
     doc = client.open_by_key(DOCUMENT_ID)
     sheet = doc.worksheet(SHEET_NAME)
@@ -57,14 +57,14 @@ def google_sheets_data(gsheet, data_set = [], ind = 2):
  
 def google_sheets_cleanup(gsheet, rows, columns, header = []):
     load_dotenv()
-    GOOGLE_API_CREDENTIALS = os.environ.get("GOOGLE_API_CREDENTIALS")
+    #GOOGLE_API_CREDENTIALS = os.environ.get("GOOGLE_API_CREDENTIALS")
     DOCUMENT_ID = os.environ.get("GOOGLE_SHEET_ID", "OOPS! The desination does not exist")
     SHEET_NAME = gsheet
     scope = ["https://spreadsheets.google.com/feeds",'https://www.googleapis.com/auth/spreadsheets',"https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
-    #file_name = os.path.join(os.getcwd(), "google_credentials", "gcreds.json")
-    #creds = ServiceAccountCredentials.from_json_keyfile_name(file_name, scope)
+    file_name = os.path.join(os.getcwd(), "google_credentials", "gcreds.json")
+    creds = ServiceAccountCredentials.from_json_keyfile_name(file_name, scope)
     #creds = ServiceAccountCredentials.from_json_keyfile_name(json.loads(GOOGLE_API_CREDENTIALS), scope)
-    creds = ServiceAccountCredentials._from_parsed_json_keyfile(json.loads(GOOGLE_API_CREDENTIALS), scope)
+    #creds = ServiceAccountCredentials._from_parsed_json_keyfile(json.loads(GOOGLE_API_CREDENTIALS), scope)
     client = gspread.authorize(creds)
     doc = client.open_by_key(DOCUMENT_ID)
     SHEET1 = doc.worksheet(SHEET_NAME)
@@ -73,7 +73,7 @@ def google_sheets_cleanup(gsheet, rows, columns, header = []):
     SHEET2 = doc.worksheet(SHEET_NAME)
     SHEET2.insert_row(header, 1)
 
-def send_email(text):    
+def send_email(text, sub):    
     load_dotenv()
     SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY", "OOPS, please set env var called 'SENDGRID_API_KEY'")
     MY_EMAIL_ADDRESS = os.environ.get("MY_EMAIL_ADDRESS", "OOPS, please set env var called 'MY_EMAIL_ADDRESS'")
@@ -81,7 +81,7 @@ def send_email(text):
     ### load email variables
     from_email = Email(MY_EMAIL_ADDRESS)
     to_email = Email(MY_EMAIL_ADDRESS)
-    subject = "Example Notification"
+    subject = sub
     sub_text = text
     message_text = f"Dear User, \nThis is an automated email response. \n {sub_text}"
     content = Content("text/plain", message_text)
@@ -109,7 +109,8 @@ if __name__ == "__main__":
         google_sheets_cleanup('business_search', 10, 7, header = ['alias', 'category', 'restaurant_id', 'id_closed', 'name','rating', 'review_count', 'update_date'])
     except:
         err_text = " Business Search dataset could not be truncated"
-        send_email(err_text)
+        sub = "Data Truncation error"
+        send_email(err_text, sub)
         err_cd = 15
         sys.exit(err_cd)
 
@@ -132,7 +133,8 @@ if __name__ == "__main__":
             req_search.status_code == 200
         except:
             err_text = "Connection to yelp api failed. the is no input available for data processing. contact dheeraj rekula"
-            send_email(err_text)
+            sub = "Yelp Connection Error"
+            send_email(err_text, sub)
             err_cd = 5
             sys.exit(5)
 
@@ -162,20 +164,20 @@ if __name__ == "__main__":
                 google_sheets_data('business_search', row_value, google_search_index)
                 google_search_index = google_search_index + 1
                 time.sleep(1)
-                if google_search_index % 49 == 0:
-                    time.sleep(105)
+                if google_search_index % 40 == 0:
+                    time.sleep(110)
                 else:
                     pass
             pass_text = f"Data upload of business search for {cuisine} cuisine succeeded. If you find any issues contact dheeraj rekula"
-            send_email(pass_text)
+            sub = f"{cuisine} feed upload success"
+            send_email(pass_text, sub)
         except:
             fail_text = f"Data upload of business search for {cuisine} cuisine failed. contact the dheeraj rekula"
-            send_email(fail_text)
+            sub = f"{cuisine} feed upload failed"
+            send_email(fail_text, sub)
             err_cd = 101
             sys.exit(err_cd)
 
-    #r = google_sheets_data_del('business_search')
-    #breakpoint()
 
     #######################
     #> BUSINESS REVIEWS API
@@ -183,18 +185,19 @@ if __name__ == "__main__":
     ### reviews api is https://api.yelp.com/v3/businesses/{id}/reviews. 
     ### it requires a business id to work. business ids are available in 'ids' list
 
-    time.sleep(105)
+    time.sleep(110)
 
     # removes old dataset of business_reviews
     try:
         google_sheets_cleanup('business_reviews', 10, 4, header = ['restaurant_id', 'review_id', 'user_rating', 'text', 'update_date'])
     except:
         err_text = " Business Reviews dataset could not be truncated"
-        send_email(err_text)
+        sub = "Business Review data could not be truncated"
+        send_email(err_text, sub)
         err_cd = 15
         sys.exit(err_cd)
 
-    time.sleep(105)
+    time.sleep(110)
     
     rows_reviews=[]
     for id in ids:
@@ -205,7 +208,8 @@ if __name__ == "__main__":
             req_reviews.status_code == 200
         except:
             err_text = "Connection to yelp reviews api failed. the is no input available for data processing. contact dheeraj rekula"
-            send_email(err_text)
+            sub = "Yelp connection error"
+            send_email(err_text, sub)
             err_cd = 6
             sys.exit(5)
         business_review = json.loads(req_reviews.text)
@@ -233,16 +237,18 @@ if __name__ == "__main__":
             google_review_index = google_review_index + 1
             # the following lines are important to ensure i maintain time restrictions on google drive api
             time.sleep(1)
-            if google_review_index % 49 == 0:
-                time.sleep(105)
+            if google_review_index % 40 == 0:
+                time.sleep(110)
             else:
                 pass
 
         pass_text = "Data upload of business reviews succeeded. if you find any issues contact dheeraj rekula"
-        send_email(pass_text)
+        sub = "Business Reviews data uploaded sucessfully"
+        send_email(pass_text, sub)
     except:
-        fail_text = "Data upload of business search failed. contact the dheeraj rekula"
-        send_email(fail_text)
+        fail_text = "Data upload of business review failed. contact the dheeraj rekula"
+        sub = "Business Review upload failed"
+        send_email(fail_text, sub)
         err_cd = 102
         sys.exit(102)
 
