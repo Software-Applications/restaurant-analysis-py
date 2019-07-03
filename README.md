@@ -139,6 +139,9 @@ Run tests:
 
 ```sh
 pytest
+```
+
+## Sources - https://github.com/prof-rossetti/nyu-info-2335-201905
 
 
 ## [License](/LICENSE.md)
