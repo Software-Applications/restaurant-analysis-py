@@ -2,7 +2,7 @@
 
 This is a course project for nyu-info-2335-201905 at Stern School of Business
 
-I have built this data exploration tool using sample data from Yelp. It helps potential investors analyze customer dining preferences so that they can make wise investment decisions when setting up new restaurants in New York City.
+I have built this data exploration tool using sample data from Yelp. It helps potential investors analyze customer food preferences so that they can make wise investment decisions when setting up new restaurants in New York City. It also helps food lovers learn about non-native cusines before they can try and judge themselves.
 
 ## Functionality
 This tool can do the following
@@ -60,7 +60,7 @@ The wordclouds and sentiment analyzer in this project are built using the nltk p
 ```sh
 python yelp_nltk.py
 ```
-Doing so will activate custom trained models from nltk package, which are used to tokenize sentences to create wordclouds, and run sentiment intensity analyzer to calculate polarity scores, which are useful for calculating sentiment scores.
+Doing so will activate custom trained models from nltk package. These models are used to tokenize sentences to create wordclouds. Moreover they are useful to calculate polarity scores to perform sentiment analysis.
 
 ## Setup
 
@@ -77,7 +77,7 @@ For email capabilities, [sign up for a SendGrid account](https://signup.sendgrid
 
 ### Google Drive
 To use google drive api to write data to google sheets, we need to set up a service account and generate its associated JSON credentials file. Follow the below steps in sequential order
-  + Click on this [link](https://consle.developers.google.com)
+  + Click on this [link](https://console.developers.google.com)
   + Create a new project, and give it your own name. Go inside the project.
   + From the menu, go to API & Services
   + Search and enable Gogle Drive API and Google Sheet API
@@ -90,12 +90,12 @@ You need this dataset to collect data from Yelp API. Follow the steps below to s
   + Go to Google sheets using your gmail account
   + Create a new sheet. Give it anyname.
   + Create 2 tabs - a) business_search b) business_reviews. The business search tab holds data about restaurant businesses and the business_reviews tab holds data about customer reviews.
-  + Go to your gcreds.json file in google_credentials folder. Copy the 'Client Email' and give this email id 'edit' privileges to this google sheet document.
+  + Go to your gcreds.json file in google_credentials folder. Copy the 'Client Email' and give this email id 'edit' privileges to your google sheet document.
   + Copy the google sheet id from the url, and paste it in .env file using below syntax
   
   GOOGLE_SHEET_ID="<Your Google Sheet ID>"
 
-A sample of .env called .env example is available in project respository. You could use is as a template for .env file.
+A sample of .env called .envexample is available in project respository. You could use is as a template for .env file.
 
 Don't worry, the ".env" has already been [ignored](/.gitignore) from version control for you!
 
