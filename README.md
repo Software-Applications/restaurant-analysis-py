@@ -31,11 +31,13 @@ The following data visuals will be created
     + Rating = 3 or 3.5 then ‘Average’
     + Otherwise poor
 
-  + Popular Cuisines – shows the which cuisines are more compared to others by counting the number of reviews each cuisine got. The assumption is that cuisines that are more popular have more visitors and hence more reviews on Yelp.
+  + Popular Cuisines – shows which cuisines are more popular compared to others by counting the number of reviews each cuisine received. The assumption is that cuisines that are more popular have more visitors and hence more reviews on Yelp.
   + Rating vs Popularity – Cross sectional scatter plot that compares cuisines against Rating and Popularity metrics. The scatter plot is divided into 4 quadrants to identify  leaders clearly.
-  + Aggregate Sentiment Reviews – Show an average of positive and negative sentiment for each cuisine. It gives a general idea of how good or bad each cuisine in NYC and compares with sentiments of other cuisines. Provides insights about competition at a Cuisine level.
+  + Aggregate Sentiment Reviews – Show an average of positive sentiment and negative sentiment for each cuisine respectively. It gives a general idea of how good or bad each cuisine is in NYC and compares with sentiments of other cuisines. Provides insights about competition at a Cuisine level.
   + Adjective Word Cloud – gives you some important adjectives people use to describe their experiences. Using this visual, investors can learn customer expectations
   + Noun Word Cloud – gives you some important nouns people use to describe experiences. Using this visual, investors can learn about customer expectations
+
+Moreover the tool sends automated emails during data extract process and after creating data visuals
 
 ## Prerequisites
 
@@ -90,11 +92,11 @@ For email capabilities, [sign up for a SendGrid account](https://signup.sendgrid
     MY_EMAIL_ADDRESS = "<Your email address>"  # (SendGrid will use this email to send notification to detination email addresses)
 
 ### Google Drive
-To use google drive api to write data to google sheets, we need to set up a service account and generate its associated JSON credentials file. Follow the below steps in sequential order
+To use google drive api to write data in google sheets, we need to set up a service account and generate its associated JSON credentials file. Follow the below steps in sequential order
   + Click on this [link](https://console.developers.google.com)
   + Create a new project, and give it your own name. Go inside the project.
   + From the menu, go to API & Services
-  + Search and enable Gogle Drive API and Google Sheet API
+  + Search and enable Google Drive API and Google Sheets API
   + From the project dashbord, click on 'Create Credentials' to create a service account Key
   + Select a name for your service account. Give it 'Owner' role. Make sure for the JSON is selected for key type
   + The above step will download a file to your computer. Rename this file as gcreds.json, and copy it to google_credentials folder in project respository
@@ -107,7 +109,9 @@ You need this dataset to collect data from Yelp API. Follow the steps below to s
   + Go to your gcreds.json file in google_credentials folder. Copy the 'Client Email' and give this email id 'edit' privileges to your google sheet document.
   + Copy the google sheet id from the url, and paste it in .env file using below syntax
   
-  GOOGLE_SHEET_ID = "<Your Google Sheet ID>"
+    GOOGLE_SHEET_ID = "<Your Google Sheet ID>"
+
+Update CLIENT_EMAIL_ADRESS in the .env file with an email id of the end user, who should be notified whenever the data visuals are ready to be viewed
 
 A sample of .env called .envexample is available in project respository. You could use is as a template for .env file.
 
@@ -125,7 +129,7 @@ After data extract is completed, run the data vis script to generate visuals:
 ```py
 python app/data_vis.py
 ```
-When prompted for an input to generate wordclouds, enter a single cusine type that is within the scope of this project, mentioned above. To select all cusines, simply eneter 'all'.
+When prompted for an input to generate wordclouds, enter a single cusine type that is within the scope of this project, mentioned above. To select all cusines, simply enter 'all'.
 
 ## Testing
 
@@ -144,4 +148,5 @@ pytest
 ## Sources - https://github.com/prof-rossetti/nyu-info-2335-201905
 
 
-## License - LICENSE.md
+## License - 
+LICENSE.md

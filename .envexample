@@ -13,3 +13,6 @@ SENDGRID_API_KEY="<Your SendGrid API Key>"
 
 # generic: used by google drive api and send grip
 MY_EMAIL_ADDRESS="<Your Email from SendGrid account>"
+
+# send a notification to end user suggesting that visuals are available in plot_images folder in project repository
+CLIENT_EMAIL_ADDRESS = "dr2907@stern.nyu.edu"
